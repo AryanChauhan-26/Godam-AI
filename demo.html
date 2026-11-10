@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Godam AI — Aapka godam, ab smart.</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  /* ── RESET & TOKENS ─────────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy:   #1E3A8A;
+    --navy2:  #1e40af;
+    --amber:  #B45309;
+    --amber2: #f59e0b;
+    --red:    #EF4444;
+    --green:  #10B981;
+    --slate:  #64748B;
+    --bg:     #F8FAFC;
+    --white:  #FFFFFF;
+    --border: #E2E8F0;
+    --text:   #0F172A;
+    --radius: 10px;
+    --shadow: 0 1px 6px rgba(0,0,0,0.07);
+  }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+
+  /* ── LAYOUT ─────────────────────────────────────────────────────────── */
+  .shell { display: flex; min-height: 100vh; }
+  .sidebar {
+    width: 230px; min-width: 230px; background: var(--navy);
+    display: flex; flex-direction: column; padding: 0;
+    position: fixed; top: 0; left: 0; height: 100vh; z-index: 100;
+    overflow-y: auto;
+  }
+  .main { margin-left: 230px; flex: 1; padding: 28px 32px; max-width: 1300px; }
+
+  /* ── SIDEBAR ────────────────────────────────────────────────────────── */
+  .sidebar-logo { padding: 24px 20px 16px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .sidebar-logo .brand { font-size: 1.3rem; font-weight: 800; color: #fff; letter-spacing: -0.3px; }
+  .sidebar-logo .tagline { font-size: 0.72rem; color: var(--amber2); font-weight: 600; margin-top: 2px; }
+  .sidebar-logo .pill {
+    display: inline-block; margin-top: 8px; background: rgba(255,255,255,0.12);
+    color: #d1fae5; font-size: 0.65rem; font-weight: 700; padding: 2px 8px;
+    border-radius: 20px; letter-spacing: 0.5px;
+  }
+  .nav-section { padding: 14px 12px 4px; font-size: 0.6rem; color: rgba(255,255,255,0.4); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .nav-item {
+    display: flex; align-items: center; gap: 10px; padding: 10px 20px;
+    color: rgba(255,255,255,0.65); font-size: 0.88rem; font-weight: 500;
+    cursor: pointer; border-left: 3px solid transparent; transition: all .15s;
+    text-decoration: none;
+  }
+  .nav-item:hover { background: rgba(255,255,255,0.08); color: #fff; }
+  .nav-item.active { background: rgba(255,255,255,0.12); color: #fff; border-left-color: var(--amber2); font-weight: 700; }
+  .nav-icon { font-size: 1rem; width: 20px; text-align: center; }
+  .sidebar-footer { margin-top: auto; padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
+  .sidebar-footer p { font-size: 0.65rem; color: rgba(255,255,255,0.35); line-height: 1.6; }
+
+  /* ── PAGE HEADER ─────────────────────────────────────────────────────── */
+  .page-header { margin-bottom: 24px; }
+  .page-title { font-size: 1.7rem; font-weight: 800; color: var(--navy); letter-spacing: -0.4px; }
+  .page-sub { font-size: 0.88rem; color: var(--slate); margin-top: 3px; }
+
+  /* ── PAGES ───────────────────────────────────────────────────────────── */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ── KPI CARDS ───────────────────────────────────────────────────────── */
+  .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
+  .kpi-card {
+    background: var(--white); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow);
+  }
+  .kpi-card.red   { border-top: 3px solid var(--red); }
+  .kpi-card.amber { border-top: 3px solid var(--amber2); }
+  .kpi-card.green { border-top: 3px solid var(--green); }
+  .kpi-card.navy  { border-top: 3px solid var(--navy); }
+  .kpi-label { font-size: 0.72rem; font-weight: 700; color: var(--slate); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .kpi-value { font-size: 1.9rem; font-weight: 800; color: var(--text); line-height: 1.1; }
+  .kpi-sub { font-size: 0.8rem; color: var(--slate); margin-top: 5px; font-weight: 500; }
+  .kpi-icon { font-size: 1.4rem; margin-bottom: 8px; }
+
+  /* ── CARDS ───────────────────────────────────────────────────────────── */
+  .card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; box-shadow: var(--shadow); margin-bottom: 20px; }
+  .card-title { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .card-title span { font-size: 1.1rem; }
+
+  /* ── ALERT BOXES ─────────────────────────────────────────────────────── */
+  .alert-critical { background: #FEF2F2; border-left: 5px solid var(--red); border-radius: 6px; padding: 14px 18px; margin-bottom: 10px; color: #991B1B; }
+  .alert-soon     { background: #FFFBEB; border-left: 5px solid var(--amber2); border-radius: 6px; padding: 14px 18px; margin-bottom: 10px; color: #92400E; }
+  .alert-ok       { background: #F0FDF4; border-left: 5px solid var(--green); border-radius: 6px; padding: 14px 18px; margin-bottom: 10px; color: #166534; }
+  .alert-title { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
+  .alert-msg { font-size: 0.84rem; line-height: 1.5; }
+
+  /* ── TABLE ───────────────────────────────────────────────────────────── */
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  th { background: var(--bg); color: var(--slate); font-weight: 700; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.4px; padding: 10px 14px; text-align: left; border-bottom: 2px solid var(--border); }
+  td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #f8fafc; }
+  .badge { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 0.72rem; font-weight: 700; }
+  .badge-critical { background: #FEE2E2; color: #991B1B; }
+  .badge-soon     { background: #FEF3C7; color: #92400E; }
+  .badge-ok       { background: #D1FAE5; color: #065F46; }
+  .badge-dead     { background: #FEE2E2; color: #991B1B; }
+  .badge-risk     { background: #FEF3C7; color: #92400E; }
+
+  /* ── CHART WRAPPER ───────────────────────────────────────────────────── */
+  .chart-wrap { position: relative; height: 300px; }
+  .chart-wrap-lg { position: relative; height: 380px; }
+
+  /* ── PRODUCT SELECTOR ────────────────────────────────────────────────── */
+  .product-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .prod-tab {
+    padding: 7px 14px; border-radius: 20px; font-size: 0.82rem; font-weight: 600;
+    cursor: pointer; border: 1.5px solid var(--border); background: var(--white);
+    color: var(--slate); transition: all .15s;
+  }
+  .prod-tab.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+  .prod-tab:hover:not(.active) { border-color: var(--navy); color: var(--navy); }
+
+  /* ── STAT ROW ────────────────────────────────────────────────────────── */
+  .stat-row { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; }
+  .stat-item { background: var(--bg); border-radius: 8px; padding: 12px 18px; min-width: 130px; }
+  .stat-item .sl { font-size: 0.72rem; font-weight: 700; color: var(--slate); text-transform: uppercase; }
+  .stat-item .sv { font-size: 1.25rem; font-weight: 800; color: var(--navy); margin-top: 2px; }
+
+  /* ── OVERVIEW DATA BARS ──────────────────────────────────────────────── */
+  .data-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .data-label { font-size: 0.82rem; min-width: 220px; color: var(--text); font-weight: 500; }
+  .data-bar-wrap { flex: 1; height: 8px; background: var(--border); border-radius: 4px; overflow: hidden; }
+  .data-bar { height: 100%; border-radius: 4px; }
+  .data-val { font-size: 0.82rem; font-weight: 700; color: var(--slate); min-width: 90px; text-align: right; }
+
+  /* ── CHAT ────────────────────────────────────────────────────────────── */
+  .chat-box { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; min-height: 320px; display: flex; flex-direction: column; }
+  .chat-msgs { flex: 1; overflow-y: auto; margin-bottom: 16px; display: flex; flex-direction: column; gap: 12px; min-height: 220px; }
+  .msg { max-width: 80%; padding: 12px 16px; border-radius: 12px; font-size: 0.88rem; line-height: 1.55; }
+  .msg.user { align-self: flex-end; background: var(--navy); color: #fff; border-bottom-right-radius: 4px; }
+  .msg.bot  { align-self: flex-start; background: var(--bg); border: 1px solid var(--border); border-bottom-left-radius: 4px; }
+  .chat-input-row { display: flex; gap: 10px; }
+  .chat-input { flex: 1; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 0.88rem; outline: none; }
+  .chat-input:focus { border-color: var(--navy); }
+  .chat-send { background: var(--navy); color: #fff; border: none; border-radius: 8px; padding: 10px 18px; font-weight: 700; cursor: pointer; font-size: 0.88rem; }
+  .chat-send:hover { background: var(--navy2); }
+  .hindi-hint { font-size: 0.75rem; color: var(--slate); margin-top: 8px; }
+
+  /* ── UPLOAD PAGE ─────────────────────────────────────────────────────── */
+  .upload-zone { border: 2px dashed var(--border); border-radius: var(--radius); padding: 36px; text-align: center; color: var(--slate); background: var(--white); margin-bottom: 16px; }
+  .upload-zone .icon { font-size: 2.5rem; margin-bottom: 10px; }
+  .upload-zone p { font-size: 0.88rem; }
+  .sample-btn { background: var(--navy); color: #fff; border: none; border-radius: 8px; padding: 12px 24px; font-size: 0.95rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
+  .sample-btn:hover { background: var(--navy2); }
+  .dq-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; }
+  .dq-row:last-child { border-bottom: none; }
+  .dq-pass { color: var(--green); font-weight: 700; }
+  .dq-warn { color: var(--amber); font-weight: 700; }
+
+  /* ── SETTINGS PAGE ───────────────────────────────────────────────────── */
+  .setting-row { display: flex; align-items: center; justify-content: space-between; padding: 14px 0; border-bottom: 1px solid var(--border); }
+  .setting-row:last-child { border-bottom: none; }
+  .setting-label { font-size: 0.9rem; font-weight: 600; }
+  .setting-sub { font-size: 0.78rem; color: var(--slate); margin-top: 2px; }
+  .toggle { width: 42px; height: 24px; background: var(--green); border-radius: 12px; cursor: pointer; position: relative; }
+  .toggle::after { content: ''; position: absolute; width: 18px; height: 18px; background: #fff; border-radius: 50%; top: 3px; right: 3px; transition: .2s; }
+  .toggle.off { background: var(--border); }
+  .toggle.off::after { right: auto; left: 3px; }
+  select.ctl { padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 0.88rem; cursor: pointer; }
+
+  /* ── RESPONSIVE ──────────────────────────────────────────────────────── */
+  @media (max-width: 900px) {
+    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
+    .sidebar { width: 56px; min-width: 56px; }
+    .sidebar .nav-item span:last-child, .sidebar .tagline, .sidebar-logo .brand, .sidebar-footer p, .nav-section { display: none; }
+    .main { margin-left: 56px; padding: 16px; }
+    .data-label { min-width: 120px; }
+  }
+  @media (max-width: 600px) {
+    .kpi-grid { grid-template-columns: 1fr 1fr; }
+    .stat-row { gap: 10px; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+<!-- ═══════════════════════════════ SIDEBAR ═══════════════════════════════ -->
+<nav class="sidebar">
+  <div class="sidebar-logo">
+    <div class="brand">🏭 Godam AI</div>
+    <div class="tagline">Aapka godam, ab smart.</div>
+    <span class="pill">SAMPLE DATA LOADED ✓</span>
+  </div>
+
+  <div class="nav-section">Pages</div>
+  <a class="nav-item" onclick="showPage('upload')"><span class="nav-icon">📁</span><span>Data Upload</span></a>
+  <a class="nav-item active" onclick="showPage('overview')"><span class="nav-icon">📊</span><span>Overview</span></a>
+  <a class="nav-item" onclick="showPage('forecast')"><span class="nav-icon">📈</span><span>Forecast</span></a>
+  <a class="nav-item" onclick="showPage('reorder')"><span class="nav-icon">🚨</span><span>Reorder Alerts</span></a>
+  <a class="nav-item" onclick="showPage('deadstock')"><span class="nav-icon">🛑</span><span>Dead Stock</span></a>
+  <a class="nav-item" onclick="showPage('chat')"><span class="nav-icon">💬</span><span>Ask Godam AI</span></a>
+  <a class="nav-item" onclick="showPage('settings')"><span class="nav-icon">⚙️</span><span>Settings</span></a>
+
+  <div class="sidebar-footer">
+    <p>Godam AI v1.0<br/>15 SKUs · 24 months data<br/>Factory: Sample Electric Co.</p>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════ MAIN ══════════════════════════════════ -->
+<main class="main">
+
+<!-- ══════════════════ PAGE: UPLOAD ══════════════════ -->
+<div id="page-upload" class="page">
+  <div class="page-header">
+    <div class="page-title">📁 Data Upload</div>
+    <div class="page-sub">Upload your Excel/CSV files or load 24-month factory sample data.</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span>⚡</span>Quick Start with Sample Data</div>
+    <p style="font-size:.88rem;color:var(--slate);margin-bottom:16px;">
+      Don't have your files ready? Load 24 months of realistic Indian electrical components factory data instantly.
+    </p>
+    <button class="sample-btn" onclick="showPage('overview')">⚡ Load 24-Month Factory Sample Data</button>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span>📂</span>Upload Your Files</div>
+    <div style="display:grid;gap:12px;">
+      <div class="upload-zone">
+        <div class="icon">📋</div>
+        <p><strong>Sales Ledger</strong> (CSV / Excel)<br/><small>Columns: date, product, quantity, customer</small></p>
+      </div>
+      <div class="upload-zone">
+        <div class="icon">🛒</div>
+        <p><strong>Purchase Ledger</strong> (CSV / Excel)<br/><small>Columns: date, supplier, item, quantity, amount</small></p>
+      </div>
+      <div class="upload-zone">
+        <div class="icon">📦</div>
+        <p><strong>Stock Register</strong> (CSV / Excel)<br/><small>Columns: item_code, name, type, qty, unit_cost</small></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span>✅</span>Data Quality Report — Sample Data</div>
+    <div class="dq-row"><span>Sales Ledger</span><span class="dq-pass">✓ 2,967 rows · 8 products · 24 months</span></div>
+    <div class="dq-row"><span>Missing dates cleaned</span><span class="dq-pass">✓ 3 rows dropped (NaT)</span></div>
+    <div class="dq-row"><span>Quantity parsing ("230 pcs" → 230)</span><span class="dq-pass">✓ All normalised</span></div>
+    <div class="dq-row"><span>Hindi/bilingual column headers</span><span class="dq-pass">✓ Auto-detected & mapped</span></div>
+    <div class="dq-row"><span>Stock Register</span><span class="dq-pass">✓ 15 SKUs (8 Finished · 7 Raw Materials)</span></div>
+    <div class="dq-row"><span>Currency prefixes ("₹ 42.00" → 42)</span><span class="dq-pass">✓ Stripped</span></div>
+    <div class="dq-row"><span>Purchase Ledger</span><span class="dq-pass">✓ 602 rows · 7 suppliers</span></div>
+    <div class="dq-row"><span>Overall quality score</span><span class="dq-pass">✓ 97.2% — Excellent</span></div>
+  </div>
+</div>
+
+<!-- ══════════════════ PAGE: OVERVIEW ══════════════════ -->
+<div id="page-overview" class="page active">
+  <div class="page-header">
+    <div class="page-title">📊 Factory Overview</div>
+    <div class="page-sub">Sample Electric Co. · As of November 2026 · 15 SKUs · 24 months data</div>
+  </div>
+
+  <!-- KPI Cards -->
+  <div class="kpi-grid">
+    <div class="kpi-card red">
+      <div class="kpi-icon">🔒</div>
+      <div class="kpi-label">Cash Locked in Dead Stock</div>
+      <div class="kpi-value">₹ 3.66 Lakh</div>
+      <div class="kpi-sub">2 items idle 100–355 days</div>
+    </div>
+    <div class="kpi-card amber">
+      <div class="kpi-icon">⚠️</div>
+      <div class="kpi-label">Stockout Risk (14 days)</div>
+      <div class="kpi-value">1 Item</div>
+      <div class="kpi-sub">Cold Rolled Steel — Order by Dec 6</div>
+    </div>
+    <div class="kpi-card green">
+      <div class="kpi-icon">🎯</div>
+      <div class="kpi-label">Avg. Forecast Accuracy</div>
+      <div class="kpi-value">91%</div>
+      <div class="kpi-sub">Across 8 finished goods SKUs</div>
+    </div>
+    <div class="kpi-card navy">
+      <div class="kpi-icon">📦</div>
+      <div class="kpi-label">Items to Reorder This Week</div>
+      <div class="kpi-value">1 Critical</div>
+      <div class="kpi-sub">+ 6 OK · ROP system active</div>
+    </div>
+  </div>
+
+  <!-- Two column section -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+    <div class="card">
+      <div class="card-title"><span>📦</span>Stock Health by SKU</div>
+      <div class="chart-wrap">
+        <canvas id="stockChart"></canvas>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span>📈</span>Weekly Sales — Last 12 Weeks</div>
+      <div class="chart-wrap">
+        <canvas id="salesTrendChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span>🏆</span>Top 8 Products — Weekly Demand vs Forecast</div>
+    <div>
+      <div class="data-row">
+        <div class="data-label">FG-104 Bakelite Base Plate</div>
+        <div class="data-bar-wrap"><div class="data-bar" style="width:100%;background:var(--navy);"></div></div>
+        <div class="data-val">294 / wk</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">FG-101 Brass Terminal Conn.</div>
+        <div class="data-bar-wrap"><div class="data-bar" style="width:50%;background:var(--navy);"></div></div>
+        <div class="data-val">149 / wk</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">FG-106 DIN Rail Channel 1m</div>
+        <div class="data-bar-wrap"><div class="data-bar" style="width:50%;background:var(--navy);"></div></div>
+        <div class="data-val">148 / wk</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">FG-105 Rotary Cam Switch</div>
+        <div class="data-bar-wrap"><div class="data-bar" style="width:23%;background:var(--navy2);"></div></div>
+        <div class="data-val">68 / wk</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">FG-107 Industrial Plug Socket</div>
+        <div class="data-bar-wrap"><div class="data-bar" style="width:25%;background:var(--navy2);"></div></div>
+        <div class="data-val">74 / wk</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">FG-103 MS Enclosure Box 8×6</div>
+        <div class="data-bar-wrap"><div class="data-bar" style="width:20%;background:var(--navy2);"></div></div>
+        <div class="data-val">58 / wk</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">FG-102 Copper Busbar Link</div>
+        <div class="data-bar-wrap"><div class="data-bar" style="width:24%;background:#94a3b8;"></div></div>
+        <div class="data-val">72 / wk</div>
+      </div>
+      <div class="data-row">
+        <div class="data-label">FG-108 Legacy Fuse Base 63A</div>
+        <div class="data-bar-wrap"><div class="data-bar" style="width:1%;background:var(--red);"></div></div>
+        <div class="data-val">0 / wk ⚠️</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ PAGE: FORECAST ══════════════════ -->
+<div id="page-forecast" class="page">
+  <div class="page-header">
+    <div class="page-title">📈 Demand Forecast</div>
+    <div class="page-sub">12-week ahead forecast with confidence band · Croston's Method & Moving Average</div>
+  </div>
+
+  <div class="product-tabs" id="forecastTabs">
+    <div class="prod-tab active" onclick="switchForecast(0, this)">FG-101 · Brass Terminal</div>
+    <div class="prod-tab" onclick="switchForecast(1, this)">FG-104 · Bakelite Base</div>
+    <div class="prod-tab" onclick="switchForecast(2, this)">FG-103 · MS Enclosure</div>
+    <div class="prod-tab" onclick="switchForecast(3, this)">FG-105 · Rotary Cam Switch</div>
+    <div class="prod-tab" onclick="switchForecast(4, this)">FG-108 · Legacy Fuse</div>
+  </div>
+
+  <div class="card">
+    <div id="forecastHeader">
+      <div class="card-title"><span>📈</span><span id="fcTitle">FG-101 Brass Terminal Connector 15A</span></div>
+      <div class="stat-row">
+        <div class="stat-item"><div class="sl">Model</div><div class="sv" id="fcModel">Croston's</div></div>
+        <div class="stat-item"><div class="sl">WAPE Error</div><div class="sv" id="fcWape">1.1%</div></div>
+        <div class="stat-item"><div class="sl">Accuracy</div><div class="sv" id="fcAcc">98.9%</div></div>
+        <div class="stat-item"><div class="sl">History</div><div class="sv" id="fcHist">153 wks</div></div>
+        <div class="stat-item"><div class="sl">Next 4 Wks</div><div class="sv" id="fcNext">594 pcs</div></div>
+      </div>
+    </div>
+    <div class="chart-wrap-lg">
+      <canvas id="forecastChart"></canvas>
+    </div>
+    <p style="font-size:0.76rem;color:var(--slate);margin-top:10px;">
+      🔵 Historical demand &nbsp;|&nbsp; 🟠 Forecast &nbsp;|&nbsp; Shaded band = 80% confidence interval
+    </p>
+  </div>
+</div>
+
+<!-- ══════════════════ PAGE: REORDER ALERTS ══════════════════ -->
+<div id="page-reorder" class="page">
+  <div class="page-header">
+    <div class="page-title">🚨 Reorder Alerts</div>
+    <div class="page-sub">Raw material replenishment · Ranked by urgency · EOQ-optimised order quantities</div>
+  </div>
+
+  <!-- Critical -->
+  <div class="alert-critical">
+    <div class="alert-title">🚨 CRITICAL — Cold Rolled Steel Sheet 1.2mm (RM-203)</div>
+    <div class="alert-msg">
+      Order <strong>708 kg</strong> by <strong>Sunday, 06 Dec 2026</strong> or stock runs out on 17 Dec.<br/>
+      Current stock: 235 kg &nbsp;|&nbsp; Reorder Point: 382 kg &nbsp;|&nbsp; EOQ: 708 kg &nbsp;|&nbsp; Supplier lead time: ~21 days
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:20px;">
+    <div class="card-title"><span>📋</span>All Raw Material Status</div>
+    <div style="overflow-x:auto;">
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th>Urgency</th>
+            <th>Stock (kg/ltr)</th>
+            <th>ROP</th>
+            <th>EOQ</th>
+            <th>Days Supply</th>
+            <th>Order By</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>RM-203</strong><br/><small style="color:var(--slate)">Cold Rolled Steel Sheet 1.2mm</small></td>
+            <td><span class="badge badge-critical">🚨 Critical</span></td>
+            <td>235</td><td>382</td><td>708</td><td style="color:var(--red);font-weight:700">41 days</td>
+            <td style="color:var(--red);font-weight:700">06 Dec 2026</td>
+          </tr>
+          <tr>
+            <td><strong>RM-204</strong><br/><small style="color:var(--slate)">Phenolic Bakelite Powder B</small></td>
+            <td><span class="badge badge-ok">✅ OK</span></td>
+            <td>362</td><td>123</td><td>435</td><td>30 days</td><td>30 Dec 2026</td>
+          </tr>
+          <tr>
+            <td><strong>RM-207</strong><br/><small style="color:var(--slate)">Lead-Alloy Solder Wire 60/40</small></td>
+            <td><span class="badge badge-ok">✅ OK</span></td>
+            <td>350</td><td>53</td><td>83</td><td>97 days</td><td>01 Mar 2027</td>
+          </tr>
+          <tr>
+            <td><strong>RM-205</strong><br/><small style="color:var(--slate)">Stainless Steel Fasteners M4×16</small></td>
+            <td><span class="badge badge-ok">✅ OK</span></td>
+            <td>112</td><td>9</td><td>91</td><td>106 days</td><td>18 Mar 2027</td>
+          </tr>
+          <tr>
+            <td><strong>RM-206</strong><br/><small style="color:var(--slate)">Zinc Electroplating Chemical</small></td>
+            <td><span class="badge badge-ok">✅ OK</span></td>
+            <td>120</td><td>7</td><td>80</td><td>188 days</td><td>05 Jun 2027</td>
+          </tr>
+          <tr>
+            <td><strong>RM-202</strong><br/><small style="color:var(--slate)">Electrolytic Copper Strip 25×3</small></td>
+            <td><span class="badge badge-ok">✅ OK</span></td>
+            <td>416</td><td>29</td><td>66</td><td>224 days</td><td>07 Jul 2027</td>
+          </tr>
+          <tr>
+            <td><strong>RM-201</strong><br/><small style="color:var(--slate)">Free Cutting Brass Rod 12mm</small></td>
+            <td><span class="badge badge-ok">✅ OK</span></td>
+            <td>455</td><td>22</td><td>84</td><td>256 days</td><td>11 Aug 2027</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:16px;">
+      <button class="sample-btn" style="background:var(--green);" onclick="alert('Purchase order Excel would download here in the full Streamlit app.')">
+        📥 Download Purchase Order (Excel)
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ PAGE: DEAD STOCK ══════════════════ -->
+<div id="page-deadstock" class="page">
+  <div class="page-header">
+    <div class="page-title">🛑 Dead Stock & Capital Lockup</div>
+    <div class="page-sub">Working capital frozen in idle inventory · Annual carrying cost drain</div>
+  </div>
+
+  <div class="kpi-grid" style="grid-template-columns:repeat(3,1fr)">
+    <div class="kpi-card red">
+      <div class="kpi-icon">🔒</div>
+      <div class="kpi-label">Total Cash Locked</div>
+      <div class="kpi-value">₹ 3.66 Lakh</div>
+      <div class="kpi-sub">In 2 idle SKUs</div>
+    </div>
+    <div class="kpi-card amber">
+      <div class="kpi-icon">🏭</div>
+      <div class="kpi-label">Annual Carrying Drain</div>
+      <div class="kpi-value">₹ 73,220</div>
+      <div class="kpi-sub">Interest + godown rent @ 20%/yr</div>
+    </div>
+    <div class="kpi-card navy">
+      <div class="kpi-icon">📦</div>
+      <div class="kpi-label">Total Inventory Value</div>
+      <div class="kpi-value">₹ 5.73 Lakh</div>
+      <div class="kpi-sub">15 SKUs · 63.9% healthy</div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+    <div class="card">
+      <div class="card-title"><span>📊</span>Dead Stock — Cash Locked (₹)</div>
+      <div class="chart-wrap">
+        <canvas id="deadstockChart"></canvas>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title"><span>🗂️</span>Aging Breakdown</div>
+      <div class="chart-wrap">
+        <canvas id="agingChart"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span>🏆</span>Ranked Liquidation Plan</div>
+    <table>
+      <thead>
+        <tr><th>SKU</th><th>Item</th><th>Type</th><th>Qty</th><th>Unit Cost</th><th>Cash Locked</th><th>Idle Days</th><th>Bracket</th><th>Recommendation</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>RM-207</strong></td>
+          <td>Lead-Alloy Solder Wire 60/40</td>
+          <td>Raw</td><td>350 kg</td><td>₹ 950</td>
+          <td style="color:var(--red);font-weight:700">₹ 3,32,500</td>
+          <td>355 days</td>
+          <td><span class="badge badge-risk">Slow Moving</span></td>
+          <td style="font-size:0.8rem">Sell to scrap dealer or return to supplier · ₹ 66,500/yr drain</td>
+        </tr>
+        <tr>
+          <td><strong>FG-108</strong></td>
+          <td>Legacy Bakelite Fuse Base 63A</td>
+          <td>Finished</td><td>280 pcs</td><td>₹ 120</td>
+          <td style="color:var(--amber);font-weight:700">₹ 33,600</td>
+          <td>100 days</td>
+          <td><span class="badge badge-risk" style="background:#FEF3C7;color:#92400E">At Risk</span></td>
+          <td style="font-size:0.8rem">Discount offer to clear before it becomes dead stock</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ══════════════════ PAGE: CHAT ══════════════════ -->
+<div id="page-chat" class="page">
+  <div class="page-header">
+    <div class="page-title">💬 Ask Godam AI</div>
+    <div class="page-sub">Ask in English or Hindi · Answers only from your factory's numbers</div>
+  </div>
+
+  <div class="card">
+    <div class="chat-box">
+      <div class="chat-msgs" id="chatMsgs">
+        <div class="msg bot">
+          🙏 <strong>Namaste!</strong> Main Godam AI hoon — aapka inventory assistant.<br/><br/>
+          Mujhse poochein: "Is hafte kya order karna hai?" ya "Kaun sa maal paisa phasa raha hai?" ya "What is my forecast accuracy?"<br/><br/>
+          Main sirf aapke factory ke numbers se jawab dunga.
+        </div>
+      </div>
+      <div class="chat-input-row">
+        <input class="chat-input" id="chatInput" type="text" placeholder="e.g. Is hafte kya order karna hai?" onkeydown="if(event.key==='Enter')sendChat()" />
+        <button class="chat-send" onclick="sendChat()">Send ➤</button>
+      </div>
+      <div class="hindi-hint">💡 Try: "Kaun sa maal paisa phasa raha hai?" &nbsp;|&nbsp; "What should I order this week?" &nbsp;|&nbsp; "Forecast accuracy kya hai?"</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span>⚡</span>Quick Questions</div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;">
+      <button class="prod-tab" onclick="quickChat('Is hafte kya order karna hai?')">Is hafte kya order?</button>
+      <button class="prod-tab" onclick="quickChat('Kaun sa maal paisa phasa raha hai?')">Paisa kahan phasa?</button>
+      <button class="prod-tab" onclick="quickChat('What is my forecast accuracy?')">Forecast accuracy?</button>
+      <button class="prod-tab" onclick="quickChat('Kitne din ka stock bacha hai RM-203 mein?')">RM-203 stock?</button>
+      <button class="prod-tab" onclick="quickChat('Top 3 products by demand?')">Top products?</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ PAGE: SETTINGS ══════════════════ -->
+<div id="page-settings" class="page">
+  <div class="page-header">
+    <div class="page-title">⚙️ Settings</div>
+    <div class="page-sub">Customise service levels, thresholds, and display language</div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span>🏭</span>Factory Profile</div>
+    <div class="setting-row">
+      <div><div class="setting-label">Company Name</div><div class="setting-sub">Used in PDF Health Report</div></div>
+      <input style="border:1px solid var(--border);border-radius:6px;padding:6px 12px;font-size:.88rem" value="Sample Electric Co." />
+    </div>
+    <div class="setting-row">
+      <div><div class="setting-label">Financial Year</div><div class="setting-sub">April–March (Indian standard)</div></div>
+      <select class="ctl"><option>2026-27</option><option>2025-26</option></select>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span>📊</span>Inventory Parameters</div>
+    <div class="setting-row">
+      <div><div class="setting-label">Service Level</div><div class="setting-sub">95% = z-score 1.65 (safety stock)</div></div>
+      <select class="ctl"><option>99% (Very High)</option><option selected>95% (Recommended)</option><option>90% (Moderate)</option><option>85% (Low)</option></select>
+    </div>
+    <div class="setting-row">
+      <div><div class="setting-label">Dead Stock Threshold</div><div class="setting-sub">Days of no movement before flagging</div></div>
+      <select class="ctl"><option>60 days</option><option selected>90 days</option><option>180 days</option></select>
+    </div>
+    <div class="setting-row">
+      <div><div class="setting-label">Annual Carrying Rate</div><div class="setting-sub">Interest + storage + insurance</div></div>
+      <select class="ctl"><option>15%</option><option selected>20% (Recommended)</option><option>25%</option></select>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-title"><span>🌐</span>Display & Language</div>
+    <div class="setting-row">
+      <div><div class="setting-label">Language</div><div class="setting-sub">UI labels and button text</div></div>
+      <select class="ctl"><option selected>English</option><option>हिंदी (Hindi)</option></select>
+    </div>
+    <div class="setting-row">
+      <div><div class="setting-label">Number Format</div><div class="setting-sub">Indian Lakh/Crore system with ₹</div></div>
+      <div class="toggle" title="Always on"></div>
+    </div>
+    <div class="setting-row">
+      <div><div class="setting-label">Auto-load Sample Data on Start</div><div class="setting-sub">Loads demo data when no files uploaded</div></div>
+      <div class="toggle" title="Click to toggle" onclick="this.classList.toggle('off')"></div>
+    </div>
+  </div>
+
+  <div class="card" style="background:#f0fdf4;border-color:#a7f3d0;">
+    <div class="card-title" style="color:#065f46"><span>🚀</span>Launch Full Dashboard (Streamlit)</div>
+    <p style="font-size:.88rem;color:#065f46;margin-bottom:14px;">This HTML is a demo preview. Run the full app locally for real AI assistant, PDF export, and live data.</p>
+    <div style="background:#1e293b;border-radius:8px;padding:16px;font-family:monospace;font-size:.82rem;color:#94a3b8;">
+      <span style="color:#4ade80">$</span> <span style="color:#f8fafc">source .venv/bin/activate</span><br/>
+      <span style="color:#4ade80">$</span> <span style="color:#f8fafc">streamlit run app.py</span><br/>
+      <span style="color:#94a3b8"># → Open http://localhost:8501</span>
+    </div>
+  </div>
+</div>
+
+</main>
+</div><!-- end .shell -->
+
+<!-- ═══════════════════════════════ SCRIPTS ═══════════════════════════════ -->
+<script>
+// ── NAV ──────────────────────────────────────────────────────────────────
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('page-' + id).classList.add('active');
+
+  const icons = {upload:'📁',overview:'📊',forecast:'📈',reorder:'🚨',deadstock:'🛑',chat:'💬',settings:'⚙️'};
+  document.querySelectorAll('.nav-item').forEach(n => {
+    if (n.getAttribute('onclick')?.includes("'" + id + "'")) n.classList.add('active');
+  });
+}
+
+// ── CHART HELPERS ─────────────────────────────────────────────────────────
+const NAVY   = '#1E3A8A';
+const NAVY2  = '#3B82F6';
+const AMBER  = '#F59E0B';
+const RED    = '#EF4444';
+const GREEN  = '#10B981';
+const GRAY   = '#94A3B8';
+
+// ── OVERVIEW: STOCK HEALTH ────────────────────────────────────────────────
+new Chart(document.getElementById('stockChart'), {
+  type: 'bar',
+  data: {
+    labels: ['FG-101','FG-102','FG-103','FG-104','FG-105','FG-106','FG-107','FG-108'],
+    datasets: [{
+      label: 'Current Stock (pcs)',
+      data: [213, 71, 194, 144, 107, 63, 71, 280],
+      backgroundColor: [GREEN,GREEN,GREEN,GREEN,GREEN,AMBER,GREEN,RED],
+      borderRadius: 5
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: true, grid: { color: '#f1f5f9' } }, x: { grid: { display: false } } }
+  }
+});
+
+// ── OVERVIEW: SALES TREND ─────────────────────────────────────────────────
+const weeks = ['Aug W1','Aug W2','Aug W3','Aug W4','Sep W1','Sep W2','Sep W3','Sep W4','Oct W1','Oct W2','Oct W3','Oct W4'];
+new Chart(document.getElementById('salesTrendChart'), {
+  type: 'line',
+  data: {
+    labels: weeks,
+    datasets: [{
+      label: 'Total Weekly Sales (all SKUs)',
+      data: [820, 760, 890, 980, 1050, 1120, 970, 1030, 1200, 1150, 980, 1100],
+      borderColor: NAVY, backgroundColor: 'rgba(30,58,138,0.07)',
+      tension: 0.4, fill: true, pointRadius: 4, pointBackgroundColor: NAVY
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false } },
+    scales: { y: { beginAtZero: false, grid: { color: '#f1f5f9' } }, x: { grid: { display: false } } }
+  }
+});
+
+// ── FORECAST CHART ────────────────────────────────────────────────────────
+const forecastProducts = [
+  {
+    name: 'FG-101 Brass Terminal Connector 15A',
+    model: "Croston's", wape: '1.1%', acc: '98.9%', hist: '153 wks', next4: '594 pcs',
+    histWeeks: ['W-12','W-11','W-10','W-9','W-8','W-7','W-6','W-5','W-4','W-3','W-2','W-1'],
+    histVals:  [130, 155, 170, 148, 162, 141, 158, 145, 152, 160, 148, 155],
+    fcWeeks: ['W+1','W+2','W+3','W+4','W+5','W+6','W+7','W+8'],
+    fcVals:  [148.5,148.5,148.5,148.5,148.5,148.5,148.5,148.5],
+    low:     [120, 120, 120, 120, 120, 118, 118, 116],
+    high:    [178, 178, 180, 180, 182, 182, 184, 184],
+  },
+  {
+    name: 'FG-104 Bakelite Base Plate 4-Way',
+    model: "Croston's", wape: '1.0%', acc: '99.0%', hist: '153 wks', next4: '1,176 pcs',
+    histWeeks: ['W-12','W-11','W-10','W-9','W-8','W-7','W-6','W-5','W-4','W-3','W-2','W-1'],
+    histVals:  [280, 310, 295, 320, 288, 305, 315, 290, 300, 310, 295, 308],
+    fcWeeks: ['W+1','W+2','W+3','W+4','W+5','W+6','W+7','W+8'],
+    fcVals:  [294, 294, 294, 294, 294, 294, 294, 294],
+    low:     [260, 258, 256, 255, 254, 253, 252, 250],
+    high:    [328, 330, 332, 333, 334, 335, 336, 338],
+  },
+  {
+    name: 'FG-103 Mild Steel Enclosure Box 8×6',
+    model: "Croston's", wape: '1.2%', acc: '98.8%', hist: '153 wks', next4: '231 pcs',
+    histWeeks: ['W-12','W-11','W-10','W-9','W-8','W-7','W-6','W-5','W-4','W-3','W-2','W-1'],
+    histVals:  [52, 61, 48, 65, 55, 60, 58, 70, 54, 62, 57, 59],
+    fcWeeks: ['W+1','W+2','W+3','W+4','W+5','W+6','W+7','W+8'],
+    fcVals:  [57.8,57.8,57.8,57.8,57.8,57.8,57.8,57.8],
+    low:     [44, 44, 43, 43, 42, 42, 41, 41],
+    high:    [72, 72, 73, 73, 74, 74, 75, 75],
+  },
+  {
+    name: 'FG-105 Rotary Cam Switch 32A',
+    model: "Croston's", wape: '0.9%', acc: '99.1%', hist: '144 wks', next4: '272 pcs',
+    histWeeks: ['W-12','W-11','W-10','W-9','W-8','W-7','W-6','W-5','W-4','W-3','W-2','W-1'],
+    histVals:  [60, 72, 55, 80, 65, 70, 68, 75, 62, 72, 68, 70],
+    fcWeeks: ['W+1','W+2','W+3','W+4','W+5','W+6','W+7','W+8'],
+    fcVals:  [67.9,67.9,67.9,67.9,67.9,67.9,67.9,67.9],
+    low:     [52, 52, 51, 51, 50, 50, 49, 49],
+    high:    [84, 84, 85, 85, 86, 86, 87, 87],
+  },
+  {
+    name: 'FG-108 Legacy Bakelite Fuse Base 63A',
+    model: 'Moving Average', wape: '0.0%', acc: '100%', hist: '153 wks', next4: '0 pcs ⚠️',
+    histWeeks: ['W-12','W-11','W-10','W-9','W-8','W-7','W-6','W-5','W-4','W-3','W-2','W-1'],
+    histVals:  [5, 2, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0],
+    fcWeeks: ['W+1','W+2','W+3','W+4','W+5','W+6','W+7','W+8'],
+    fcVals:  [0,0,0,0,0,0,0,0],
+    low:     [0,0,0,0,0,0,0,0],
+    high:    [5,5,5,5,5,5,5,5],
+  },
+];
+
+let fcChart = null;
+function buildForecastChart(prod) {
+  const allLabels = [...prod.histWeeks, ...prod.fcWeeks];
+  const histFull  = [...prod.histVals, ...new Array(prod.fcWeeks.length).fill(null)];
+  const fcFull    = [...new Array(prod.histWeeks.length).fill(null), ...prod.fcVals];
+  const lowFull   = [...new Array(prod.histWeeks.length).fill(null), ...prod.low];
+  const highFull  = [...new Array(prod.histWeeks.length).fill(null), ...prod.high];
+
+  if (fcChart) fcChart.destroy();
+  fcChart = new Chart(document.getElementById('forecastChart'), {
+    type: 'line',
+    data: {
+      labels: allLabels,
+      datasets: [
+        {
+          label: 'History', data: histFull,
+          borderColor: NAVY, backgroundColor: 'rgba(30,58,138,0.08)',
+          tension: 0.3, fill: false, pointRadius: 4, pointBackgroundColor: NAVY,
+          borderWidth: 2
+        },
+        {
+          label: 'Forecast', data: fcFull,
+          borderColor: AMBER, backgroundColor: 'rgba(245,158,11,0.15)',
+          tension: 0.1, fill: false, pointRadius: 5, pointBackgroundColor: AMBER,
+          borderWidth: 2.5, borderDash: [6, 3]
+        },
+        {
+          label: 'Upper Bound', data: highFull,
+          borderColor: 'transparent', backgroundColor: 'rgba(245,158,11,0.12)',
+          fill: '+1', pointRadius: 0, tension: 0.1
+        },
+        {
+          label: 'Lower Bound', data: lowFull,
+          borderColor: 'transparent', backgroundColor: 'rgba(245,158,11,0.12)',
+          fill: false, pointRadius: 0, tension: 0.1
+        }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { beginAtZero: true, grid: { color: '#f1f5f9' } },
+        x: { grid: { color: '#f8fafc' } }
+      },
+      interaction: { mode: 'index', intersect: false }
+    }
+  });
+}
+buildForecastChart(forecastProducts[0]);
+
+function switchForecast(idx, el) {
+  document.querySelectorAll('.prod-tab').forEach(t => t.classList.remove('active'));
+  el.classList.add('active');
+  const p = forecastProducts[idx];
+  document.getElementById('fcTitle').textContent = p.name;
+  document.getElementById('fcModel').textContent = p.model;
+  document.getElementById('fcWape').textContent = p.wape;
+  document.getElementById('fcAcc').textContent = p.acc;
+  document.getElementById('fcHist').textContent = p.hist;
+  document.getElementById('fcNext').textContent = p.next4;
+  buildForecastChart(p);
+}
+
+// ── DEADSTOCK BAR CHART ───────────────────────────────────────────────────
+new Chart(document.getElementById('deadstockChart'), {
+  type: 'bar',
+  data: {
+    labels: ['RM-207 Solder Wire', 'FG-108 Fuse Base'],
+    datasets: [{
+      label: 'Cash Locked (₹)',
+      data: [332500, 33600],
+      backgroundColor: [RED, AMBER],
+      borderRadius: 6
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    responsive: true, maintainAspectRatio: false,
+    plugins: { legend: { display: false },
+      tooltip: { callbacks: { label: ctx => '₹ ' + ctx.raw.toLocaleString('en-IN') } }
+    },
+    scales: {
+      x: { beginAtZero: true, grid: { color: '#f1f5f9' },
+        ticks: { callback: v => '₹ ' + (v/100000).toFixed(1) + 'L' }
+      },
+      y: { grid: { display: false } }
+    }
+  }
+});
+
+// ── AGING PIE CHART ───────────────────────────────────────────────────────
+new Chart(document.getElementById('agingChart'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Active (< 90 days)', 'At Risk (91–180 days)', 'Slow Moving (181–365 days)'],
+    datasets: [{
+      data: [13, 1, 1],
+      backgroundColor: [GREEN, AMBER, RED],
+      borderWidth: 2, borderColor: '#fff'
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { position: 'bottom', labels: { font: { size: 12 } } },
+      tooltip: { callbacks: { label: ctx => ctx.label + ': ' + ctx.raw + ' SKUs' } }
+    },
+    cutout: '62%'
+  }
+});
+
+// ── CHAT ──────────────────────────────────────────────────────────────────
+const chatResponses = {
+  'is hafte kya order karna hai': '📦 Is hafte <strong>sirf ek critical order</strong> hai:\n\n🚨 <strong>RM-203 Cold Rolled Steel Sheet 1.2mm</strong>\n• Order: <strong>708 kg</strong>\n• Deadline: Sunday, 06 Dec 2026\n• Agar order nahi kiya toh 17 Dec ko stock khatam ho jayega.\n\nBaaki 6 raw materials ka stock healthy hai — koi urgent order nahi.',
+
+  'kaun sa maal paisa phasa raha hai': '🔒 Aapka <strong>₹ 3.66 Lakh</strong> dead stock mein phasa hua hai:\n\n1. <strong>RM-207 Lead-Alloy Solder Wire</strong> — ₹ 3,32,500 | 355 din se banda\n   👉 Scrap dealer ko becho ya supplier ko wapas karo\n\n2. <strong>FG-108 Legacy Fuse Base 63A</strong> — ₹ 33,600 | 100 din se banda\n   👉 Discount lagao, clear karo\n\nHar saal <strong>₹ 73,220</strong> godown rent + interest mein ja raha hai.',
+
+  'what is my forecast accuracy': '🎯 <strong>Average Forecast Accuracy: 91%</strong>\n\nProduct-wise breakdown:\n• FG-104 Bakelite Base Plate — 99.0% ✅\n• FG-105 Rotary Cam Switch — 99.1% ✅\n• FG-106 DIN Rail Channel — 99.3% ✅\n• FG-101 Brass Terminal — 98.9% ✅\n• FG-108 Legacy Fuse Base — ⚠️ No demand (product obsolete)\n\nModel used: Croston\'s Method (best for intermittent demand)',
+
+  'kitne din ka stock bacha hai rm-203 mein': '⚠️ <strong>RM-203 Cold Rolled Steel Sheet 1.2mm</strong>\n\n• Current Stock: 235 kg\n• Daily Consumption: ~5.7 kg/day\n• <strong>Days Remaining: ~41 days</strong>\n• Stockout Date: 17 December 2026\n\n🚨 Reorder Point (382 kg) already crossed! Order 708 kg immediately.',
+
+  'top 3 products by demand': '🏆 <strong>Top 3 Products by Weekly Demand:</strong>\n\n1. <strong>FG-104 Bakelite Base Plate 4-Way</strong> — 294 pcs/week\n2. <strong>FG-101 Brass Terminal Connector 15A</strong> — 149 pcs/week\n3. <strong>FG-106 DIN Rail Mounting Channel 1m</strong> — 148 pcs/week\n\nYeh teeno products total weekly demand ka ~65% hain.',
+};
+
+function sendChat() {
+  const input = document.getElementById('chatInput');
+  const q = input.value.trim();
+  if (!q) return;
+  input.value = '';
+
+  const msgs = document.getElementById('chatMsgs');
+  const userDiv = document.createElement('div');
+  userDiv.className = 'msg user';
+  userDiv.textContent = q;
+  msgs.appendChild(userDiv);
+
+  const key = q.toLowerCase().replace(/[?।]/g, '').trim();
+  let reply = null;
+  for (const [k, v] of Object.entries(chatResponses)) {
+    if (key.includes(k) || k.includes(key.split(' ').slice(0,3).join(' '))) { reply = v; break; }
+  }
+  if (!reply) reply = 'Mere paas yeh data nahi hai. 🙏\n\nMain sirf aapke loaded factory data ke numbers se jawab de sakta hoon — forecasts, dead stock, aur reorder alerts. Kuch aur poochein?';
+
+  setTimeout(() => {
+    const botDiv = document.createElement('div');
+    botDiv.className = 'msg bot';
+    botDiv.innerHTML = reply.replace(/\n/g, '<br/>');
+    msgs.appendChild(botDiv);
+    msgs.scrollTop = msgs.scrollHeight;
+  }, 400);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function quickChat(q) {
+  document.getElementById('chatInput').value = q;
+  sendChat();
+}
+</script>
+</body>
+</html>
+
