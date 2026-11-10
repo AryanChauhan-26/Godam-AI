@@ -1,0 +1,602 @@
+Purchase Date (दिनांक),Material_ID,Material Description,Quantity (मात्रा),Vendor / Supplier,Lead Time [days]
+11/02/2024,RM-202,Electrolytic Copper Strip 25x3,351,"National Fasteners & Hardware, Faridabad",10
+  05/11/2024  ,RM-202,Electrolytic Copper Strip 25x3,305,"National Fasteners & Hardware, Faridabad",14
+05/11/2024,RM-205,Stainless Steel Fasteners M4x16,421,"National Fasteners & Hardware, Faridabad",9
+2024-11-07,RM-201,Free Cutting Brass Rod 12mm,379,"Shree Ganesh Metals, Jamnagar",4
+2024-11-07,RM-202,Electrolytic Copper Strip 25x3,537,Hindalco Copper & Brass Distributors,8 days
+07-11-2024,RM-206,Zinc Electroplating Chemical,234,"Shree Ganesh Metals, Jamnagar",7
+10/11/2024,RM-203,Cold Rolled Steel Sheet 1.2mm,521,"National Fasteners & Hardware, Faridabad",18
+11-11-2024,RM-204,Phenolic Bakelite Powder Grade B,523,Kores Chemicals Industrial Ltd,7
+12/11/2024,RM-204,Phenolic Bakelite Powder Grade B,466,"Apex Polymers & Resins, Vapi",2
+12-11-2024,RM-206,Zinc Electroplating Chemical,233,Kores Chemicals Industrial Ltd,6
+13/11/2024,RM-205,Stainless Steel Fasteners M4x16,394,Kores Chemicals Industrial Ltd,6
+15-11-2024,RM-207,Lead-Alloy Solder Wire 60/40,35,"Apex Polymers & Resins, Vapi",11 days
+2024-11-17,RM-203,Cold Rolled Steel Sheet 1.2mm,407,"Shree Ganesh Metals, Jamnagar",14 days
+2024-11-18,RM-204,Phenolic Bakelite Powder Grade B,~288,"Apex Polymers & Resins, Vapi",4 days
+22/11/2024,RM-203,Cold Rolled Steel Sheet 1.2mm, 229 ,Hindalco Copper & Brass Distributors,16
+  22/11/2024  ,RM-204,Phenolic Bakelite Powder Grade B,292,"National Fasteners & Hardware, Faridabad",6
+23-11-2024,RM-206,Zinc Electroplating Chemical,166,"Tata Steel Service Center, Ludhiana",10
+24/11/2024,RM-206,Zinc Electroplating Chemical,183,"Tata Steel Service Center, Ludhiana",6
+2024-11-24,RM-207,Lead-Alloy Solder Wire 60/40, 50 ,"Shree Ganesh Metals, Jamnagar",14
+  27/11/2024  ,RM-205,Stainless Steel Fasteners M4x16,314,"National Fasteners & Hardware, Faridabad",2
+30/11/2024,RM-203,Cold Rolled Steel Sheet 1.2mm,361,"Apex Polymers & Resins, Vapi",11
+12/05/2024,RM-204,Phenolic Bakelite Powder Grade B,159,"Apex Polymers & Resins, Vapi",9
+2024-12-05,RM-207,Lead-Alloy Solder Wire 60/40,28,"Shree Ganesh Metals, Jamnagar",12
+12/06/2024,RM-202,Electrolytic Copper Strip 25x3,146,"Shree Ganesh Metals, Jamnagar",12
+12/07/2024,RM-205,Stainless Steel Fasteners M4x16,222,"Tata Steel Service Center, Ludhiana",2
+  07/12/2024  ,RM-206,Zinc Electroplating Chemical, 82 ,"Shree Ganesh Metals, Jamnagar",6
+  08/12/2024  ,RM-201,Free Cutting Brass Rod 12mm,233,Hindalco Copper & Brass Distributors,6
+09-12-2024,RM-205,Stainless Steel Fasteners M4x16,222,"Apex Polymers & Resins, Vapi",2 days
+12/10/2024,RM-203,Cold Rolled Steel Sheet 1.2mm,,"Tata Steel Service Center, Ludhiana",19
+10-12-2024,RM-207,Lead-Alloy Solder Wire 60/40, 23 ,"Shree Ganesh Metals, Jamnagar",15
+2024-12-11,RM-203,Cold Rolled Steel Sheet 1.2mm,179 kg,"National Fasteners & Hardware, Faridabad",13 days
+12/12/2024,RM-204,Phenolic Bakelite Powder Grade B,219,"Apex Polymers & Resins, Vapi",10
+12-12-2024,RM-206,Zinc Electroplating Chemical,,"Shree Ganesh Metals, Jamnagar",8
+14/12/2024,RM-206,Zinc Electroplating Chemical,94,"Apex Polymers & Resins, Vapi",9
+16/12/2024,RM-201,Free Cutting Brass Rod 12mm,243,"Tata Steel Service Center, Ludhiana",8
+2024-12-16,RM-204,Phenolic Bakelite Powder Grade B,240,"National Fasteners & Hardware, Faridabad",9
+2024-12-16,RM-207,Lead-Alloy Solder Wire 60/40,43,Hindalco Copper & Brass Distributors,10
+  17/12/2024  ,RM-203,Cold Rolled Steel Sheet 1.2mm,159,"Tata Steel Service Center, Ludhiana",17
+  18/12/2024  ,RM-205,Stainless Steel Fasteners M4x16,188,Kores Chemicals Industrial Ltd,2
+22/12/2024,RM-206,Zinc Electroplating Chemical,83,"National Fasteners & Hardware, Faridabad",9
+24/12/2024,RM-205,Stainless Steel Fasteners M4x16,171,"Apex Polymers & Resins, Vapi",4 days
+26/12/2024,RM-202,Electrolytic Copper Strip 25x3,172,"Tata Steel Service Center, Ludhiana",9
+26/12/2024,RM-204,Phenolic Bakelite Powder Grade B,226 kg,Hindalco Copper & Brass Distributors,3
+2024-12-26,RM-206,Zinc Electroplating Chemical, 89 ,"National Fasteners & Hardware, Faridabad",7 days
+27-12-2024,RM-202,Electrolytic Copper Strip 25x3,213,"Tata Steel Service Center, Ludhiana",9
+2024-12-28,RM-204,Phenolic Bakelite Powder Grade B,198,"Tata Steel Service Center, Ludhiana",6
+2024-12-29,RM-201,Free Cutting Brass Rod 12mm,233,Hindalco Copper & Brass Distributors,4 days
+  29/12/2024  ,RM-203,Cold Rolled Steel Sheet 1.2mm,145,Kores Chemicals Industrial Ltd,19
+  29/12/2024  ,RM-205,Stainless Steel Fasteners M4x16,208 kg,Kores Chemicals Industrial Ltd,4
+30-12-2024,RM-201,Free Cutting Brass Rod 12mm,181,"Shree Ganesh Metals, Jamnagar",11
+2024-12-30,RM-205,Stainless Steel Fasteners M4x16,194 kg,Hindalco Copper & Brass Distributors,8
+  31/12/2024  ,RM-203,Cold Rolled Steel Sheet 1.2mm,199,"Apex Polymers & Resins, Vapi",12 days
+01/01/2025,RM-204,Phenolic Bakelite Powder Grade B,162,Kores Chemicals Industrial Ltd,3
+2025-01-02,RM-206,Zinc Electroplating Chemical,100,"National Fasteners & Hardware, Faridabad",5
+05/01/2025,RM-201,Free Cutting Brass Rod 12mm,244,Kores Chemicals Industrial Ltd,11
+01/06/2025,RM-205,Stainless Steel Fasteners M4x16,216,"Shree Ganesh Metals, Jamnagar",6
+01/09/2025,RM-204,Phenolic Bakelite Powder Grade B,,"Apex Polymers & Resins, Vapi",9 days
+  09/01/2025  ,RM-205,Stainless Steel Fasteners M4x16,175,Hindalco Copper & Brass Distributors,3
+12-01-2025,RM-202,Electrolytic Copper Strip 25x3,206,Kores Chemicals Industrial Ltd,15
+  12/01/2025  ,RM-203,Cold Rolled Steel Sheet 1.2mm,151,"Tata Steel Service Center, Ludhiana",13
+  13/01/2025  ,RM-201,Free Cutting Brass Rod 12mm,146,"Shree Ganesh Metals, Jamnagar",12
+13/01/2025,RM-204,Phenolic Bakelite Powder Grade B,145 kg,"Shree Ganesh Metals, Jamnagar",10 days
+2025-01-13,RM-207,Lead-Alloy Solder Wire 60/40, 57 ,Kores Chemicals Industrial Ltd,10 days
+2025-01-17,RM-201,Free Cutting Brass Rod 12mm,244,"National Fasteners & Hardware, Faridabad",12 days
+17/01/2025,RM-204,Phenolic Bakelite Powder Grade B,154,"National Fasteners & Hardware, Faridabad",3
+2025-01-18,RM-207,Lead-Alloy Solder Wire 60/40,43,"National Fasteners & Hardware, Faridabad",11
+20/01/2025,RM-204,Phenolic Bakelite Powder Grade B, 203 ,"Apex Polymers & Resins, Vapi",6
+2025-01-20,RM-205,Stainless Steel Fasteners M4x16,199,"Apex Polymers & Resins, Vapi",3
+  21/01/2025  ,RM-205,Stainless Steel Fasteners M4x16,172,"Tata Steel Service Center, Ludhiana",6
+22/01/2025,RM-204,Phenolic Bakelite Powder Grade B,,"Shree Ganesh Metals, Jamnagar",4 days
+2025-01-22,RM-206,Zinc Electroplating Chemical,83 ltr,Hindalco Copper & Brass Distributors,9
+22/01/2025,RM-207,Lead-Alloy Solder Wire 60/40,62,Hindalco Copper & Brass Distributors,13
+2025-01-23,RM-204,Phenolic Bakelite Powder Grade B,158,,5
+28/01/2025,RM-202,Electrolytic Copper Strip 25x3,211,"Tata Steel Service Center, Ludhiana",12
+2025-01-29,RM-203,Cold Rolled Steel Sheet 1.2mm,~252,"Tata Steel Service Center, Ludhiana",19
+02-02-2025,RM-206,Zinc Electroplating Chemical,111,"Shree Ganesh Metals, Jamnagar",4
+02/04/2025,RM-203,Cold Rolled Steel Sheet 1.2mm,128 kg,"National Fasteners & Hardware, Faridabad",17
+02/05/2025,RM-205,Stainless Steel Fasteners M4x16,184,"Tata Steel Service Center, Ludhiana",8
+2025-02-05,RM-206,Zinc Electroplating Chemical,96,"National Fasteners & Hardware, Faridabad",6
+06/02/2025,RM-203,Cold Rolled Steel Sheet 1.2mm,,"Shree Ganesh Metals, Jamnagar",17
+2025-02-06,RM-204,Phenolic Bakelite Powder Grade B,196,Hindalco Copper & Brass Distributors,3
+02/07/2025,RM-203,Cold Rolled Steel Sheet 1.2mm,184 kg,"National Fasteners & Hardware, Faridabad",11 days
+07/02/2025,RM-206,Zinc Electroplating Chemical,,Kores Chemicals Industrial Ltd,11 days
+08/02/2025,RM-201,Free Cutting Brass Rod 12mm, 160 ,Hindalco Copper & Brass Distributors,4 days
+09/02/2025,RM-201,Free Cutting Brass Rod 12mm,194 kg,Kores Chemicals Industrial Ltd,12
+10-02-2025,RM-202,Electrolytic Copper Strip 25x3, 166 ,"Shree Ganesh Metals, Jamnagar",8
+10-02-2025,RM-205,Stainless Steel Fasteners M4x16,131,Kores Chemicals Industrial Ltd,4
+  10/02/2025  ,RM-206,Zinc Electroplating Chemical,108,,11 days
+02/11/2025,RM-205,Stainless Steel Fasteners M4x16,122,Hindalco Copper & Brass Distributors,9 days
+13/02/2025,RM-202,Electrolytic Copper Strip 25x3,199,Hindalco Copper & Brass Distributors,15 days
+14-02-2025,RM-201,Free Cutting Brass Rod 12mm,135,"Apex Polymers & Resins, Vapi",8
+16/02/2025,RM-204,Phenolic Bakelite Powder Grade B, 176 ,"Tata Steel Service Center, Ludhiana",3
+2025-02-17,RM-207,Lead-Alloy Solder Wire 60/40,79,"Tata Steel Service Center, Ludhiana",10
+20/02/2025,RM-202,Electrolytic Copper Strip 25x3, 202 ,"Shree Ganesh Metals, Jamnagar",13
+20/02/2025,RM-205,Stainless Steel Fasteners M4x16,,"Apex Polymers & Resins, Vapi",6
+21-02-2025,RM-205,Stainless Steel Fasteners M4x16,120,Hindalco Copper & Brass Distributors,2
+  24/02/2025  ,RM-201,Free Cutting Brass Rod 12mm,141,"Shree Ganesh Metals, Jamnagar",9
+2025-02-24,RM-204,Phenolic Bakelite Powder Grade B,180 kg,,9
+  25/02/2025  ,RM-205,Stainless Steel Fasteners M4x16,126,Hindalco Copper & Brass Distributors,2
+27/02/2025,RM-204,Phenolic Bakelite Powder Grade B, 137 ,"National Fasteners & Hardware, Faridabad",9
+27-02-2025,RM-207,Lead-Alloy Solder Wire 60/40,56 kg,"National Fasteners & Hardware, Faridabad",11
+2025-02-28,RM-207,Lead-Alloy Solder Wire 60/40,46,"National Fasteners & Hardware, Faridabad",13
+2025-03-01,RM-204,Phenolic Bakelite Powder Grade B,351 kg,"National Fasteners & Hardware, Faridabad",5
+03/03/2025,RM-201,Free Cutting Brass Rod 12mm,255,Kores Chemicals Industrial Ltd,12
+2025-03-03,RM-206,Zinc Electroplating Chemical,158,Kores Chemicals Industrial Ltd,5
+  04/03/2025  ,RM-204,Phenolic Bakelite Powder Grade B,241,Kores Chemicals Industrial Ltd,7
+  07/03/2025  ,RM-205,Stainless Steel Fasteners M4x16,213,"National Fasteners & Hardware, Faridabad",8
+07-03-2025,RM-207,Lead-Alloy Solder Wire 60/40,38,"Shree Ganesh Metals, Jamnagar",11
+09/03/2025,RM-201,Free Cutting Brass Rod 12mm,279,"Tata Steel Service Center, Ludhiana",6
+  09/03/2025  ,RM-204,Phenolic Bakelite Powder Grade B,339,"Tata Steel Service Center, Ludhiana",6 days
+10-03-2025,RM-205,Stainless Steel Fasteners M4x16,321,Hindalco Copper & Brass Distributors,8
+11-03-2025,RM-206,Zinc Electroplating Chemical,159 ltr,"Shree Ganesh Metals, Jamnagar",5
+12/03/2025,RM-203,Cold Rolled Steel Sheet 1.2mm,236,"National Fasteners & Hardware, Faridabad",16
+  12/03/2025  ,RM-206,Zinc Electroplating Chemical,141 ltr,"Tata Steel Service Center, Ludhiana",6
+2025-03-13,RM-201,Free Cutting Brass Rod 12mm,298,Kores Chemicals Industrial Ltd,5
+  15/03/2025  ,RM-204,Phenolic Bakelite Powder Grade B,266,,10
+16/03/2025,RM-201,Free Cutting Brass Rod 12mm,176,"Apex Polymers & Resins, Vapi",4 days
+16-03-2025,RM-202,Electrolytic Copper Strip 25x3,194,"National Fasteners & Hardware, Faridabad",8 days
+2025-03-16,RM-205,Stainless Steel Fasteners M4x16,199,"National Fasteners & Hardware, Faridabad",3
+16-03-2025,RM-207,Lead-Alloy Solder Wire 60/40,29,"Apex Polymers & Resins, Vapi",12
+17-03-2025,RM-201,Free Cutting Brass Rod 12mm,281,"National Fasteners & Hardware, Faridabad",7
+19/03/2025,RM-203,Cold Rolled Steel Sheet 1.2mm,,"Shree Ganesh Metals, Jamnagar",16 days
+2025-03-21,RM-202,Electrolytic Copper Strip 25x3,188,Kores Chemicals Industrial Ltd,14
+21-03-2025,RM-204,Phenolic Bakelite Powder Grade B,171,"Shree Ganesh Metals, Jamnagar",4
+2025-03-22,RM-203,Cold Rolled Steel Sheet 1.2mm,201 kg,"National Fasteners & Hardware, Faridabad",18
+2025-03-23,RM-206,Zinc Electroplating Chemical,136,Kores Chemicals Industrial Ltd,4 days
+24-03-2025,RM-207,Lead-Alloy Solder Wire 60/40,64,"National Fasteners & Hardware, Faridabad",11 days
+25/03/2025,RM-203,Cold Rolled Steel Sheet 1.2mm,266,"Tata Steel Service Center, Ludhiana",15
+26-03-2025,RM-205,Stainless Steel Fasteners M4x16,258 kg,"Apex Polymers & Resins, Vapi",5 days
+27/03/2025,RM-201,Free Cutting Brass Rod 12mm,295,Kores Chemicals Industrial Ltd,11
+28-03-2025,RM-204,Phenolic Bakelite Powder Grade B,~240,"Apex Polymers & Resins, Vapi",10
+2025-03-30,RM-204,Phenolic Bakelite Powder Grade B,275,Kores Chemicals Industrial Ltd,8
+  01/04/2025  ,RM-201,Free Cutting Brass Rod 12mm,130,"National Fasteners & Hardware, Faridabad",6
+2025-04-01,RM-207,Lead-Alloy Solder Wire 60/40,74,"Tata Steel Service Center, Ludhiana",11 days
+2025-04-02,RM-203,Cold Rolled Steel Sheet 1.2mm, 121 ,Kores Chemicals Industrial Ltd,17 days
+2025-04-03,RM-205,Stainless Steel Fasteners M4x16,195,Hindalco Copper & Brass Distributors,2
+04/04/2025,RM-206,Zinc Electroplating Chemical,110,Kores Chemicals Industrial Ltd,6 days
+  05/04/2025  ,RM-205,Stainless Steel Fasteners M4x16,,Hindalco Copper & Brass Distributors,7
+2025-04-06,RM-202,Electrolytic Copper Strip 25x3,172,Kores Chemicals Industrial Ltd,10
+06/04/2025,RM-206,Zinc Electroplating Chemical,111,Kores Chemicals Industrial Ltd,6
+07/04/2025,RM-201,Free Cutting Brass Rod 12mm,159,"Tata Steel Service Center, Ludhiana",6
+  07/04/2025  ,RM-202,Electrolytic Copper Strip 25x3,187,"Tata Steel Service Center, Ludhiana",14
+04/07/2025,RM-206,Zinc Electroplating Chemical,105,"National Fasteners & Hardware, Faridabad",6 days
+04/08/2025,RM-202,Electrolytic Copper Strip 25x3,150,,12 days
+  09/04/2025  ,RM-201,Free Cutting Brass Rod 12mm,135,"Tata Steel Service Center, Ludhiana",12 days
+04/11/2025,RM-206,Zinc Electroplating Chemical,97,"Tata Steel Service Center, Ludhiana",5 days
+2025-04-11,RM-207,Lead-Alloy Solder Wire 60/40,20,"National Fasteners & Hardware, Faridabad",14
+13/04/2025,RM-202,Electrolytic Copper Strip 25x3,192,Kores Chemicals Industrial Ltd,10 days
+13-04-2025,RM-206,Zinc Electroplating Chemical,75,"Shree Ganesh Metals, Jamnagar",11
+16-04-2025,RM-201,Free Cutting Brass Rod 12mm, 179 ,"Shree Ganesh Metals, Jamnagar",5
+17/04/2025,RM-203,Cold Rolled Steel Sheet 1.2mm,161,Kores Chemicals Industrial Ltd,19
+2025-04-17,RM-205,Stainless Steel Fasteners M4x16,201,"Apex Polymers & Resins, Vapi",4
+2025-04-17,RM-207,Lead-Alloy Solder Wire 60/40,50,Kores Chemicals Industrial Ltd,15
+  20/04/2025  ,RM-207,Lead-Alloy Solder Wire 60/40,50,"Shree Ganesh Metals, Jamnagar",11
+21-04-2025,RM-207,Lead-Alloy Solder Wire 60/40, 74 ,"Apex Polymers & Resins, Vapi",12
+22/04/2025,RM-204,Phenolic Bakelite Powder Grade B,161,"Apex Polymers & Resins, Vapi",6 days
+  25/04/2025  ,RM-202,Electrolytic Copper Strip 25x3,210,"Tata Steel Service Center, Ludhiana",15
+2025-04-27,RM-202,Electrolytic Copper Strip 25x3,,"Apex Polymers & Resins, Vapi",15
+  27/04/2025  ,RM-207,Lead-Alloy Solder Wire 60/40,38,"Shree Ganesh Metals, Jamnagar",12
+2025-04-28,RM-202,Electrolytic Copper Strip 25x3,151,Kores Chemicals Industrial Ltd,15
+  30/04/2025  ,RM-201,Free Cutting Brass Rod 12mm,185,Kores Chemicals Industrial Ltd,5
+2025-05-01,RM-204,Phenolic Bakelite Powder Grade B,154,"Shree Ganesh Metals, Jamnagar",6 days
+  01/05/2025  ,RM-205,Stainless Steel Fasteners M4x16,205,Hindalco Copper & Brass Distributors,2 days
+01/05/2025,RM-207,Lead-Alloy Solder Wire 60/40,76,"Tata Steel Service Center, Ludhiana",10
+2025-05-02,RM-204,Phenolic Bakelite Powder Grade B,134,"Shree Ganesh Metals, Jamnagar",4 days
+05/03/2025,RM-203,Cold Rolled Steel Sheet 1.2mm,197,"Tata Steel Service Center, Ludhiana",18
+04/05/2025,RM-201,Free Cutting Brass Rod 12mm,169 kg,"Shree Ganesh Metals, Jamnagar",10
+2025-05-04,RM-202,Electrolytic Copper Strip 25x3,192,Kores Chemicals Industrial Ltd,13 days
+2025-05-04,RM-203,Cold Rolled Steel Sheet 1.2mm,,Hindalco Copper & Brass Distributors,18
+2025-05-06,RM-201,Free Cutting Brass Rod 12mm,136,"Apex Polymers & Resins, Vapi",8
+  06/05/2025  ,RM-203,Cold Rolled Steel Sheet 1.2mm,128,,13
+2025-05-07,RM-201,Free Cutting Brass Rod 12mm,175,Hindalco Copper & Brass Distributors,11
+05/07/2025,RM-205,Stainless Steel Fasteners M4x16,152 kg,"National Fasteners & Hardware, Faridabad",7
+08-05-2025,RM-202,Electrolytic Copper Strip 25x3, 142 ,"Apex Polymers & Resins, Vapi",13
+2025-05-08,RM-203,Cold Rolled Steel Sheet 1.2mm,199,Kores Chemicals Industrial Ltd,18
+05/09/2025,RM-201,Free Cutting Brass Rod 12mm,,"Shree Ganesh Metals, Jamnagar",11
+2025-05-10,RM-203,Cold Rolled Steel Sheet 1.2mm,143,Kores Chemicals Industrial Ltd,19
+05/10/2025,RM-204,Phenolic Bakelite Powder Grade B,158,Kores Chemicals Industrial Ltd,3
+2025-05-14,RM-201,Free Cutting Brass Rod 12mm,205,"Shree Ganesh Metals, Jamnagar",8
+14/05/2025,RM-204,Phenolic Bakelite Powder Grade B,209,Hindalco Copper & Brass Distributors,8
+16-05-2025,RM-202,Electrolytic Copper Strip 25x3,146,"Tata Steel Service Center, Ludhiana",8
+2025-05-18,RM-207,Lead-Alloy Solder Wire 60/40,31,"National Fasteners & Hardware, Faridabad",11
+  19/05/2025  ,RM-204,Phenolic Bakelite Powder Grade B,205,"Shree Ganesh Metals, Jamnagar",10
+20/05/2025,RM-206,Zinc Electroplating Chemical,87,"Tata Steel Service Center, Ludhiana",8 days
+22-05-2025,RM-202,Electrolytic Copper Strip 25x3,142,Kores Chemicals Industrial Ltd,11
+22/05/2025,RM-203,Cold Rolled Steel Sheet 1.2mm,137,Kores Chemicals Industrial Ltd,16
+2025-05-22,RM-205,Stainless Steel Fasteners M4x16,209,Hindalco Copper & Brass Distributors,6
+22/05/2025,RM-207,Lead-Alloy Solder Wire 60/40,64,"Shree Ganesh Metals, Jamnagar",12
+2025-05-24,RM-206,Zinc Electroplating Chemical,100 ltr,Kores Chemicals Industrial Ltd,11 days
+25/05/2025,RM-201,Free Cutting Brass Rod 12mm,195 kg,"National Fasteners & Hardware, Faridabad",10
+27/05/2025,RM-202,Electrolytic Copper Strip 25x3,193,"National Fasteners & Hardware, Faridabad",15
+28/05/2025,RM-207,Lead-Alloy Solder Wire 60/40,51,Hindalco Copper & Brass Distributors,13
+  30/05/2025  ,RM-206,Zinc Electroplating Chemical,90,"Shree Ganesh Metals, Jamnagar",6
+01-06-2025,RM-204,Phenolic Bakelite Powder Grade B,155,"Shree Ganesh Metals, Jamnagar",4
+  03/06/2025  ,RM-202,Electrolytic Copper Strip 25x3,202,Kores Chemicals Industrial Ltd,7
+06/03/2025,RM-206,Zinc Electroplating Chemical,97,"Shree Ganesh Metals, Jamnagar",4
+  04/06/2025  ,RM-203,Cold Rolled Steel Sheet 1.2mm,138,Kores Chemicals Industrial Ltd,13
+2025-06-04,RM-205,Stainless Steel Fasteners M4x16,135,"Tata Steel Service Center, Ludhiana",7
+04/06/2025,RM-206,Zinc Electroplating Chemical,112,"Tata Steel Service Center, Ludhiana",5
+04-06-2025,RM-207,Lead-Alloy Solder Wire 60/40,50,"National Fasteners & Hardware, Faridabad",12
+2025-06-05,RM-202,Electrolytic Copper Strip 25x3,168,"Apex Polymers & Resins, Vapi",9
+09-06-2025,RM-206,Zinc Electroplating Chemical,83,Hindalco Copper & Brass Distributors,9
+2025-06-10,RM-203,Cold Rolled Steel Sheet 1.2mm,169,Hindalco Copper & Brass Distributors,12
+10-06-2025,RM-204,Phenolic Bakelite Powder Grade B,187,"Tata Steel Service Center, Ludhiana",2
+11/06/2025,RM-205,Stainless Steel Fasteners M4x16,178,Kores Chemicals Industrial Ltd,3
+  14/06/2025  ,RM-204,Phenolic Bakelite Powder Grade B,170,"Shree Ganesh Metals, Jamnagar",10
+  16/06/2025  ,RM-204,Phenolic Bakelite Powder Grade B, 207 ,Hindalco Copper & Brass Distributors,8
+17/06/2025,RM-204,Phenolic Bakelite Powder Grade B,138,"National Fasteners & Hardware, Faridabad",3
+  17/06/2025  ,RM-206,Zinc Electroplating Chemical, 75 ,Kores Chemicals Industrial Ltd,4 days
+19-06-2025,RM-202,Electrolytic Copper Strip 25x3,154,"Apex Polymers & Resins, Vapi",11
+24/06/2025,RM-203,Cold Rolled Steel Sheet 1.2mm,144,"Apex Polymers & Resins, Vapi",11
+2025-06-26,RM-202,Electrolytic Copper Strip 25x3,198 kg,"National Fasteners & Hardware, Faridabad",9
+28/06/2025,RM-202,Electrolytic Copper Strip 25x3,141,Hindalco Copper & Brass Distributors,9 days
+29/06/2025,RM-204,Phenolic Bakelite Powder Grade B,173 kg,"Shree Ganesh Metals, Jamnagar",4
+30/06/2025,RM-203,Cold Rolled Steel Sheet 1.2mm,203,Kores Chemicals Industrial Ltd,16
+2025-06-30,RM-206,Zinc Electroplating Chemical,104,"Tata Steel Service Center, Ludhiana",7
+01/07/2025,RM-207,Lead-Alloy Solder Wire 60/40,~76,"Shree Ganesh Metals, Jamnagar",15
+04/07/2025,RM-202,Electrolytic Copper Strip 25x3,114,"Apex Polymers & Resins, Vapi",11 days
+05/07/2025,RM-204,Phenolic Bakelite Powder Grade B,142,Hindalco Copper & Brass Distributors,4
+07/06/2025,RM-206,Zinc Electroplating Chemical,64,"National Fasteners & Hardware, Faridabad",7 days
+08/07/2025,RM-206,Zinc Electroplating Chemical, 70 ,"National Fasteners & Hardware, Faridabad",8
+07/10/2025,RM-202,Electrolytic Copper Strip 25x3, 90 ,"Shree Ganesh Metals, Jamnagar",15
+2025-07-10,RM-203,Cold Rolled Steel Sheet 1.2mm,123,,19 days
+2025-07-13,RM-201,Free Cutting Brass Rod 12mm,116,"Shree Ganesh Metals, Jamnagar",12
+  13/07/2025  ,RM-204,Phenolic Bakelite Powder Grade B,125,Hindalco Copper & Brass Distributors,6 days
+17/07/2025,RM-203,Cold Rolled Steel Sheet 1.2mm,118,Kores Chemicals Industrial Ltd,13 days
+  19/07/2025  ,RM-203,Cold Rolled Steel Sheet 1.2mm,145,,15
+20-07-2025,RM-203,Cold Rolled Steel Sheet 1.2mm,88,"National Fasteners & Hardware, Faridabad",17
+22/07/2025,RM-202,Electrolytic Copper Strip 25x3,133 kg,Kores Chemicals Industrial Ltd,12
+2025-07-22,RM-204,Phenolic Bakelite Powder Grade B,123,"Tata Steel Service Center, Ludhiana",6 days
+2025-07-22,RM-207,Lead-Alloy Solder Wire 60/40,59,"Shree Ganesh Metals, Jamnagar",15
+  23/07/2025  ,RM-205,Stainless Steel Fasteners M4x16,133,"Shree Ganesh Metals, Jamnagar",2
+24/07/2025,RM-205,Stainless Steel Fasteners M4x16,107,"Shree Ganesh Metals, Jamnagar",5
+25-07-2025,RM-205,Stainless Steel Fasteners M4x16,104,"Shree Ganesh Metals, Jamnagar",4
+2025-07-26,RM-203,Cold Rolled Steel Sheet 1.2mm,129,"National Fasteners & Hardware, Faridabad",15 days
+26/07/2025,RM-205,Stainless Steel Fasteners M4x16,141,"National Fasteners & Hardware, Faridabad",3 days
+  27/07/2025  ,RM-201,Free Cutting Brass Rod 12mm,90,"Apex Polymers & Resins, Vapi",11
+27-07-2025,RM-204,Phenolic Bakelite Powder Grade B,,Kores Chemicals Industrial Ltd,10
+2025-07-29,RM-201,Free Cutting Brass Rod 12mm,110,"Apex Polymers & Resins, Vapi",7 days
+30/07/2025,RM-204,Phenolic Bakelite Powder Grade B,146,"Apex Polymers & Resins, Vapi",5
+2025-08-02,RM-202,Electrolytic Copper Strip 25x3,110,"Tata Steel Service Center, Ludhiana",9
+2025-08-02,RM-203,Cold Rolled Steel Sheet 1.2mm,123,"Tata Steel Service Center, Ludhiana",11
+02-08-2025,RM-204,Phenolic Bakelite Powder Grade B, 135 ,"National Fasteners & Hardware, Faridabad",8
+03-08-2025,RM-205,Stainless Steel Fasteners M4x16,134,Kores Chemicals Industrial Ltd,7 days
+08/04/2025,RM-206,Zinc Electroplating Chemical,64,Kores Chemicals Industrial Ltd,8
+2025-08-08,RM-202,Electrolytic Copper Strip 25x3,139,Hindalco Copper & Brass Distributors,15
+  08/08/2025  ,RM-206,Zinc Electroplating Chemical,71,"Apex Polymers & Resins, Vapi",3
+2025-08-09,RM-203,Cold Rolled Steel Sheet 1.2mm,121,Kores Chemicals Industrial Ltd,14
+12/08/2025,RM-204,Phenolic Bakelite Powder Grade B,115 kg,"Apex Polymers & Resins, Vapi",5
+12-08-2025,RM-206,Zinc Electroplating Chemical,56,"Apex Polymers & Resins, Vapi",3
+2025-08-14,RM-201,Free Cutting Brass Rod 12mm,107,"Shree Ganesh Metals, Jamnagar",12 days
+  19/08/2025  ,RM-201,Free Cutting Brass Rod 12mm,~132,Kores Chemicals Industrial Ltd,7 days
+22/08/2025,RM-201,Free Cutting Brass Rod 12mm,120,"National Fasteners & Hardware, Faridabad",5
+25/08/2025,RM-206,Zinc Electroplating Chemical,66,"Apex Polymers & Resins, Vapi",7 days
+25/08/2025,RM-207,Lead-Alloy Solder Wire 60/40,30,Hindalco Copper & Brass Distributors,11
+  26/08/2025  ,RM-204,Phenolic Bakelite Powder Grade B,134,"National Fasteners & Hardware, Faridabad",6
+2025-08-29,RM-204,Phenolic Bakelite Powder Grade B,130,"Apex Polymers & Resins, Vapi",8
+30-08-2025,RM-204,Phenolic Bakelite Powder Grade B,147,"Tata Steel Service Center, Ludhiana",8 days
+31/08/2025,RM-205,Stainless Steel Fasteners M4x16,146,Kores Chemicals Industrial Ltd,8
+02/09/2025,RM-201,Free Cutting Brass Rod 12mm,135,"National Fasteners & Hardware, Faridabad",7
+2025-09-02,RM-206,Zinc Electroplating Chemical,90,Kores Chemicals Industrial Ltd,6
+09/04/2025,RM-205,Stainless Steel Fasteners M4x16,175,"Tata Steel Service Center, Ludhiana",2
+04-09-2025,RM-207,Lead-Alloy Solder Wire 60/40,66,"National Fasteners & Hardware, Faridabad",11
+05/09/2025,RM-206,Zinc Electroplating Chemical,87,"Tata Steel Service Center, Ludhiana",6
+2025-09-06,RM-201,Free Cutting Brass Rod 12mm,182,"Shree Ganesh Metals, Jamnagar",8
+06-09-2025,RM-207,Lead-Alloy Solder Wire 60/40,75,Hindalco Copper & Brass Distributors,15
+09/07/2025,RM-204,Phenolic Bakelite Powder Grade B,137,"National Fasteners & Hardware, Faridabad",10
+09/09/2025,RM-201,Free Cutting Brass Rod 12mm,192,"Shree Ganesh Metals, Jamnagar",11
+  12/09/2025  ,RM-201,Free Cutting Brass Rod 12mm, 138 ,"Shree Ganesh Metals, Jamnagar",6
+  13/09/2025  ,RM-201,Free Cutting Brass Rod 12mm,146,Hindalco Copper & Brass Distributors,6
+2025-09-13,RM-205,Stainless Steel Fasteners M4x16,208,Kores Chemicals Industrial Ltd,7 days
+2025-09-14,RM-201,Free Cutting Brass Rod 12mm,209,"Shree Ganesh Metals, Jamnagar",7
+14/09/2025,RM-203,Cold Rolled Steel Sheet 1.2mm,206 kg,Hindalco Copper & Brass Distributors,11
+2025-09-14,RM-205,Stainless Steel Fasteners M4x16,141,"National Fasteners & Hardware, Faridabad",3 days
+  17/09/2025  ,RM-204,Phenolic Bakelite Powder Grade B,193 kg,"Tata Steel Service Center, Ludhiana",7
+19-09-2025,RM-201,Free Cutting Brass Rod 12mm, 182 ,Kores Chemicals Industrial Ltd,10 days
+20/09/2025,RM-201,Free Cutting Brass Rod 12mm,202,"National Fasteners & Hardware, Faridabad",10
+  24/09/2025  ,RM-202,Electrolytic Copper Strip 25x3, 163 ,"Apex Polymers & Resins, Vapi",9
+26/09/2025,RM-201,Free Cutting Brass Rod 12mm,186,"National Fasteners & Hardware, Faridabad",6
+26/09/2025,RM-205,Stainless Steel Fasteners M4x16,129,"Apex Polymers & Resins, Vapi",4
+  27/09/2025  ,RM-201,Free Cutting Brass Rod 12mm,142,"Tata Steel Service Center, Ludhiana",11
+28-09-2025,RM-203,Cold Rolled Steel Sheet 1.2mm,201,"Apex Polymers & Resins, Vapi",17
+2025-10-01,RM-201,Free Cutting Brass Rod 12mm,302,Hindalco Copper & Brass Distributors,8
+01-10-2025,RM-204,Phenolic Bakelite Powder Grade B,405,"Apex Polymers & Resins, Vapi",8
+2025-10-01,RM-206,Zinc Electroplating Chemical,220,"Tata Steel Service Center, Ludhiana",11 days
+  02/10/2025  ,RM-201,Free Cutting Brass Rod 12mm,357 kg,Hindalco Copper & Brass Distributors,4
+2025-10-02,RM-203,Cold Rolled Steel Sheet 1.2mm,443,"Tata Steel Service Center, Ludhiana",14
+03-10-2025,RM-203,Cold Rolled Steel Sheet 1.2mm,301,"Apex Polymers & Resins, Vapi",19 days
+03/10/2025,RM-206,Zinc Electroplating Chemical,271,Hindalco Copper & Brass Distributors,11
+2025-10-04,RM-202,Electrolytic Copper Strip 25x3,304,"Apex Polymers & Resins, Vapi",11
+04/10/2025,RM-206,Zinc Electroplating Chemical, 269 ,"Apex Polymers & Resins, Vapi",3
+06/10/2025,RM-202,Electrolytic Copper Strip 25x3,383,Kores Chemicals Industrial Ltd,8
+07/10/2025,RM-201,Free Cutting Brass Rod 12mm,387 kg,Hindalco Copper & Brass Distributors,11
+07-10-2025,RM-203,Cold Rolled Steel Sheet 1.2mm,470,"Tata Steel Service Center, Ludhiana",11 days
+08-10-2025,RM-201,Free Cutting Brass Rod 12mm,343,Kores Chemicals Industrial Ltd,12
+  08/10/2025  ,RM-202,Electrolytic Copper Strip 25x3, 529 ,Kores Chemicals Industrial Ltd,10
+  08/10/2025  ,RM-205,Stainless Steel Fasteners M4x16,442,Hindalco Copper & Brass Distributors,2
+2025-10-09,RM-204,Phenolic Bakelite Powder Grade B,377,Hindalco Copper & Brass Distributors,2
+2025-10-10,RM-202,Electrolytic Copper Strip 25x3,,"National Fasteners & Hardware, Faridabad",12
+10/10/2025,RM-205,Stainless Steel Fasteners M4x16,454,Kores Chemicals Industrial Ltd,5
+  12/10/2025  ,RM-202,Electrolytic Copper Strip 25x3,320,Kores Chemicals Industrial Ltd,12
+14/10/2025,RM-201,Free Cutting Brass Rod 12mm,360,Kores Chemicals Industrial Ltd,4
+  14/10/2025  ,RM-205,Stainless Steel Fasteners M4x16, 452 ,"Apex Polymers & Resins, Vapi",9
+15/10/2025,RM-201,Free Cutting Brass Rod 12mm,272,Kores Chemicals Industrial Ltd,10
+  15/10/2025  ,RM-203,Cold Rolled Steel Sheet 1.2mm,298,Hindalco Copper & Brass Distributors,13
+16/10/2025,RM-205,Stainless Steel Fasteners M4x16,316,"Tata Steel Service Center, Ludhiana",6
+16-10-2025,RM-207,Lead-Alloy Solder Wire 60/40,25,"Apex Polymers & Resins, Vapi",10
+17/10/2025,RM-203,Cold Rolled Steel Sheet 1.2mm, 274 ,"National Fasteners & Hardware, Faridabad",14
+19/10/2025,RM-205,Stainless Steel Fasteners M4x16,368,"Tata Steel Service Center, Ludhiana",9
+19-10-2025,RM-206,Zinc Electroplating Chemical,153,"Apex Polymers & Resins, Vapi",7
+26/10/2025,RM-204,Phenolic Bakelite Powder Grade B, 348 ,"Shree Ganesh Metals, Jamnagar",4
+27-10-2025,RM-204,Phenolic Bakelite Powder Grade B,238,Kores Chemicals Industrial Ltd,2
+  27/10/2025  ,RM-207,Lead-Alloy Solder Wire 60/40,45,"Tata Steel Service Center, Ludhiana",12
+28-10-2025,RM-205,Stainless Steel Fasteners M4x16,296,"Shree Ganesh Metals, Jamnagar",2
+31/10/2025,RM-206,Zinc Electroplating Chemical,173,Kores Chemicals Industrial Ltd,6
+  03/11/2025  ,RM-205,Stainless Steel Fasteners M4x16,431,"Shree Ganesh Metals, Jamnagar",3
+2025-11-04,RM-204,Phenolic Bakelite Powder Grade B,334,"National Fasteners & Hardware, Faridabad",9 days
+04-11-2025,RM-205,Stainless Steel Fasteners M4x16,402,Hindalco Copper & Brass Distributors,3
+2025-11-06,RM-204,Phenolic Bakelite Powder Grade B,432,Hindalco Copper & Brass Distributors,7
+06-11-2025,RM-205,Stainless Steel Fasteners M4x16,442,"Tata Steel Service Center, Ludhiana",4
+06-11-2025,RM-207,Lead-Alloy Solder Wire 60/40,61,"Tata Steel Service Center, Ludhiana",10
+07-11-2025,RM-206,Zinc Electroplating Chemical,258,"Shree Ganesh Metals, Jamnagar",8
+2025-11-08,RM-202,Electrolytic Copper Strip 25x3,498,"Apex Polymers & Resins, Vapi",12
+  08/11/2025  ,RM-207,Lead-Alloy Solder Wire 60/40,41 kg,"National Fasteners & Hardware, Faridabad",13
+11/09/2025,RM-203,Cold Rolled Steel Sheet 1.2mm,380,"Tata Steel Service Center, Ludhiana",16 days
+10/11/2025,RM-206,Zinc Electroplating Chemical, 167 ,"Shree Ganesh Metals, Jamnagar",5
+10/11/2025,RM-207,Lead-Alloy Solder Wire 60/40,62,"Apex Polymers & Resins, Vapi",10
+14/11/2025,RM-203,Cold Rolled Steel Sheet 1.2mm,458,"Tata Steel Service Center, Ludhiana",15
+15/11/2025,RM-205,Stainless Steel Fasteners M4x16,300,"National Fasteners & Hardware, Faridabad",7
+  16/11/2025  ,RM-204,Phenolic Bakelite Powder Grade B,390,"Apex Polymers & Resins, Vapi",5
+17/11/2025,RM-201,Free Cutting Brass Rod 12mm, 270 ,"Apex Polymers & Resins, Vapi",8 days
+21/11/2025,RM-204,Phenolic Bakelite Powder Grade B,~290,"National Fasteners & Hardware, Faridabad",4
+2025-11-24,RM-206,Zinc Electroplating Chemical,153,Hindalco Copper & Brass Distributors,8
+26/11/2025,RM-205,Stainless Steel Fasteners M4x16,308,Kores Chemicals Industrial Ltd,2
+2025-11-26,RM-206,Zinc Electroplating Chemical,158,"Tata Steel Service Center, Ludhiana",5 days
+26-11-2025,RM-207,Lead-Alloy Solder Wire 60/40,56,"Apex Polymers & Resins, Vapi",15
+2025-11-27,RM-204,Phenolic Bakelite Powder Grade B, 260 ,"Apex Polymers & Resins, Vapi",5
+27/11/2025,RM-206,Zinc Electroplating Chemical, 127 ,"Tata Steel Service Center, Ludhiana",5
+29/11/2025,RM-206,Zinc Electroplating Chemical,205,"Apex Polymers & Resins, Vapi",5
+30-11-2025,RM-202,Electrolytic Copper Strip 25x3,314,"Shree Ganesh Metals, Jamnagar",11
+30/11/2025,RM-203,Cold Rolled Steel Sheet 1.2mm,436 kg,"National Fasteners & Hardware, Faridabad",17
+01/12/2025,RM-203,Cold Rolled Steel Sheet 1.2mm,215,Hindalco Copper & Brass Distributors,11 days
+02/12/2025,RM-203,Cold Rolled Steel Sheet 1.2mm,247,"Shree Ganesh Metals, Jamnagar",19 days
+  02/12/2025  ,RM-204,Phenolic Bakelite Powder Grade B,170,Kores Chemicals Industrial Ltd,7
+03-12-2025,RM-201,Free Cutting Brass Rod 12mm,200,Kores Chemicals Industrial Ltd,7 days
+12/03/2025,RM-202,Electrolytic Copper Strip 25x3,213,Kores Chemicals Industrial Ltd,8
+  03/12/2025  ,RM-206,Zinc Electroplating Chemical,132 ltr,"Tata Steel Service Center, Ludhiana",3
+12/04/2025,RM-206,Zinc Electroplating Chemical,,Kores Chemicals Industrial Ltd,9
+12/06/2025,RM-202,Electrolytic Copper Strip 25x3,179,"National Fasteners & Hardware, Faridabad",7
+12/08/2025,RM-204,Phenolic Bakelite Powder Grade B,242,"National Fasteners & Hardware, Faridabad",9
+2025-12-09,RM-205,Stainless Steel Fasteners M4x16,229,"Tata Steel Service Center, Ludhiana",6
+12/11/2025,RM-206,Zinc Electroplating Chemical,108,Hindalco Copper & Brass Distributors,6 days
+2025-12-12,RM-201,Free Cutting Brass Rod 12mm,~193,"Shree Ganesh Metals, Jamnagar",7
+2025-12-12,RM-204,Phenolic Bakelite Powder Grade B,239,"National Fasteners & Hardware, Faridabad",10
+  12/12/2025  ,RM-207,Lead-Alloy Solder Wire 60/40,58,Hindalco Copper & Brass Distributors,10 days
+2025-12-13,RM-201,Free Cutting Brass Rod 12mm,159,"Tata Steel Service Center, Ludhiana",8
+  13/12/2025  ,RM-203,Cold Rolled Steel Sheet 1.2mm,,"Apex Polymers & Resins, Vapi",18
+  14/12/2025  ,RM-203,Cold Rolled Steel Sheet 1.2mm,183,"National Fasteners & Hardware, Faridabad",17
+2025-12-15,RM-203,Cold Rolled Steel Sheet 1.2mm,210,"Tata Steel Service Center, Ludhiana",16
+16/12/2025,RM-205,Stainless Steel Fasteners M4x16,152 kg,"Tata Steel Service Center, Ludhiana",5
+17/12/2025,RM-206,Zinc Electroplating Chemical,131,"Apex Polymers & Resins, Vapi",3
+18-12-2025,RM-201,Free Cutting Brass Rod 12mm,198,Kores Chemicals Industrial Ltd,6
+20/12/2025,RM-203,Cold Rolled Steel Sheet 1.2mm,171,"Apex Polymers & Resins, Vapi",14
+2025-12-20,RM-207,Lead-Alloy Solder Wire 60/40, 33 ,Kores Chemicals Industrial Ltd,10
+22/12/2025,RM-205,Stainless Steel Fasteners M4x16,148,Hindalco Copper & Brass Distributors,3
+26/12/2025,RM-201,Free Cutting Brass Rod 12mm,242,"Apex Polymers & Resins, Vapi",4
+28/12/2025,RM-201,Free Cutting Brass Rod 12mm,203,"Shree Ganesh Metals, Jamnagar",6
+28/12/2025,RM-205,Stainless Steel Fasteners M4x16,227,,7
+28/12/2025,RM-206,Zinc Electroplating Chemical,134,"Shree Ganesh Metals, Jamnagar",9
+29/12/2025,RM-205,Stainless Steel Fasteners M4x16,182,Hindalco Copper & Brass Distributors,4
+  01/01/2026  ,RM-204,Phenolic Bakelite Powder Grade B,223,Kores Chemicals Industrial Ltd,8
+  03/01/2026  ,RM-202,Electrolytic Copper Strip 25x3,215,Kores Chemicals Industrial Ltd,9
+  03/01/2026  ,RM-206,Zinc Electroplating Chemical,117,Kores Chemicals Industrial Ltd,6
+01/04/2026,RM-206,Zinc Electroplating Chemical,94,"National Fasteners & Hardware, Faridabad",6
+01/05/2026,RM-206,Zinc Electroplating Chemical,125,,11 days
+07-01-2026,RM-204,Phenolic Bakelite Powder Grade B, 233 ,Kores Chemicals Industrial Ltd,7
+01/08/2026,RM-203,Cold Rolled Steel Sheet 1.2mm,214,Hindalco Copper & Brass Distributors,11
+01/09/2026,RM-204,Phenolic Bakelite Powder Grade B,169,"Tata Steel Service Center, Ludhiana",2
+10-01-2026,RM-201,Free Cutting Brass Rod 12mm,199,Kores Chemicals Industrial Ltd,4 days
+  11/01/2026  ,RM-205,Stainless Steel Fasteners M4x16,162,,2 days
+16-01-2026,RM-201,Free Cutting Brass Rod 12mm,185,"Tata Steel Service Center, Ludhiana",11
+20-01-2026,RM-206,Zinc Electroplating Chemical,115,,10
+2026-01-24,RM-202,Electrolytic Copper Strip 25x3,251,"Shree Ganesh Metals, Jamnagar",7 days
+2026-01-24,RM-204,Phenolic Bakelite Powder Grade B,165,"Shree Ganesh Metals, Jamnagar",4
+  26/01/2026  ,RM-202,Electrolytic Copper Strip 25x3,205,Hindalco Copper & Brass Distributors,7
+2026-01-27,RM-205,Stainless Steel Fasteners M4x16,167,Hindalco Copper & Brass Distributors,4
+2026-01-29,RM-201,Free Cutting Brass Rod 12mm,222,Hindalco Copper & Brass Distributors,5 days
+02/01/2026,RM-203,Cold Rolled Steel Sheet 1.2mm, 177 ,Hindalco Copper & Brass Distributors,17
+01-02-2026,RM-205,Stainless Steel Fasteners M4x16,180,"National Fasteners & Hardware, Faridabad",5
+02-02-2026,RM-205,Stainless Steel Fasteners M4x16,161,Kores Chemicals Industrial Ltd,4 days
+  02/02/2026  ,RM-206,Zinc Electroplating Chemical,79 ltr,"National Fasteners & Hardware, Faridabad",10
+03-02-2026,RM-203,Cold Rolled Steel Sheet 1.2mm,188,"Shree Ganesh Metals, Jamnagar",11
+  04/02/2026  ,RM-206,Zinc Electroplating Chemical,105 ltr,Hindalco Copper & Brass Distributors,8
+2026-02-05,RM-201,Free Cutting Brass Rod 12mm,150,"Tata Steel Service Center, Ludhiana",12
+07-02-2026,RM-205,Stainless Steel Fasteners M4x16,153,Kores Chemicals Industrial Ltd,4 days
+08-02-2026,RM-202,Electrolytic Copper Strip 25x3,143,"National Fasteners & Hardware, Faridabad",14
+08/02/2026,RM-203,Cold Rolled Steel Sheet 1.2mm,185 kg,"Shree Ganesh Metals, Jamnagar",15 days
+08-02-2026,RM-204,Phenolic Bakelite Powder Grade B,197,"Apex Polymers & Resins, Vapi",5
+02/08/2026,RM-206,Zinc Electroplating Chemical,66,"Apex Polymers & Resins, Vapi",5
+2026-02-09,RM-204,Phenolic Bakelite Powder Grade B,181,"Shree Ganesh Metals, Jamnagar",9
+09/02/2026,RM-205,Stainless Steel Fasteners M4x16, 161 ,"Shree Ganesh Metals, Jamnagar",3
+10/02/2026,RM-205,Stainless Steel Fasteners M4x16,169 kg,"Shree Ganesh Metals, Jamnagar",7
+12-02-2026,RM-206,Zinc Electroplating Chemical,105,,3
+13/02/2026,RM-201,Free Cutting Brass Rod 12mm,190,"Apex Polymers & Resins, Vapi",10
+  13/02/2026  ,RM-206,Zinc Electroplating Chemical,93 ltr,Kores Chemicals Industrial Ltd,11
+  14/02/2026  ,RM-201,Free Cutting Brass Rod 12mm,121,"National Fasteners & Hardware, Faridabad",7
+2026-02-15,RM-202,Electrolytic Copper Strip 25x3,200,"Apex Polymers & Resins, Vapi",15
+15/02/2026,RM-206,Zinc Electroplating Chemical,90,"Tata Steel Service Center, Ludhiana",5
+16/02/2026,RM-203,Cold Rolled Steel Sheet 1.2mm,170,"Apex Polymers & Resins, Vapi",14
+  17/02/2026  ,RM-205,Stainless Steel Fasteners M4x16,204,"Tata Steel Service Center, Ludhiana",8
+18/02/2026,RM-204,Phenolic Bakelite Powder Grade B,152 kg,"National Fasteners & Hardware, Faridabad",3
+20-02-2026,RM-205,Stainless Steel Fasteners M4x16,130 kg,"Shree Ganesh Metals, Jamnagar",2
+  22/02/2026  ,RM-206,Zinc Electroplating Chemical,100 ltr,"Shree Ganesh Metals, Jamnagar",11
+23/02/2026,RM-202,Electrolytic Copper Strip 25x3,187,,13
+23-02-2026,RM-204,Phenolic Bakelite Powder Grade B, 169 ,Kores Chemicals Industrial Ltd,10
+  25/02/2026  ,RM-205,Stainless Steel Fasteners M4x16,206,Hindalco Copper & Brass Distributors,2
+26/02/2026,RM-201,Free Cutting Brass Rod 12mm,137,"Tata Steel Service Center, Ludhiana",12
+26/02/2026,RM-205,Stainless Steel Fasteners M4x16,,Kores Chemicals Industrial Ltd,6
+27/02/2026,RM-201,Free Cutting Brass Rod 12mm,154,"Tata Steel Service Center, Ludhiana",12
+  01/03/2026  ,RM-202,Electrolytic Copper Strip 25x3,320,Hindalco Copper & Brass Distributors,14 days
+01/03/2026,RM-204,Phenolic Bakelite Powder Grade B,336,"Shree Ganesh Metals, Jamnagar",4 days
+03/02/2026,RM-202,Electrolytic Copper Strip 25x3,301 kg,"Apex Polymers & Resins, Vapi",14
+  05/03/2026  ,RM-202,Electrolytic Copper Strip 25x3,293,"National Fasteners & Hardware, Faridabad",13
+05/03/2026,RM-204,Phenolic Bakelite Powder Grade B,355,Kores Chemicals Industrial Ltd,2
+  06/03/2026  ,RM-205,Stainless Steel Fasteners M4x16, 297 ,"National Fasteners & Hardware, Faridabad",6
+  06/03/2026  ,RM-206,Zinc Electroplating Chemical,158,"Tata Steel Service Center, Ludhiana",9 days
+08/03/2026,RM-201,Free Cutting Brass Rod 12mm,276,"Apex Polymers & Resins, Vapi",6
+10-03-2026,RM-202,Electrolytic Copper Strip 25x3,277,"National Fasteners & Hardware, Faridabad",15 days
+2026-03-17,RM-202,Electrolytic Copper Strip 25x3,258,"Apex Polymers & Resins, Vapi",9
+2026-03-18,RM-205,Stainless Steel Fasteners M4x16,217,"Shree Ganesh Metals, Jamnagar",2
+19/03/2026,RM-204,Phenolic Bakelite Powder Grade B,242,"National Fasteners & Hardware, Faridabad",6
+20/03/2026,RM-204,Phenolic Bakelite Powder Grade B,230,"National Fasteners & Hardware, Faridabad",5 days
+2026-03-22,RM-203,Cold Rolled Steel Sheet 1.2mm,289,"Tata Steel Service Center, Ludhiana",15
+  22/03/2026  ,RM-204,Phenolic Bakelite Powder Grade B,250,Hindalco Copper & Brass Distributors,5
+23-03-2026,RM-201,Free Cutting Brass Rod 12mm,290,"Apex Polymers & Resins, Vapi",5
+23/03/2026,RM-206,Zinc Electroplating Chemical,141,"National Fasteners & Hardware, Faridabad",6
+24/03/2026,RM-203,Cold Rolled Steel Sheet 1.2mm,,"Apex Polymers & Resins, Vapi",17
+24/03/2026,RM-206,Zinc Electroplating Chemical,129,"Shree Ganesh Metals, Jamnagar",6 days
+25-03-2026,RM-201,Free Cutting Brass Rod 12mm,,"National Fasteners & Hardware, Faridabad",6
+2026-03-25,RM-205,Stainless Steel Fasteners M4x16,301,Hindalco Copper & Brass Distributors,2
+28/03/2026,RM-203,Cold Rolled Steel Sheet 1.2mm,227 kg,"Apex Polymers & Resins, Vapi",12
+2026-03-29,RM-205,Stainless Steel Fasteners M4x16,257,"Shree Ganesh Metals, Jamnagar",3
+2026-03-31,RM-205,Stainless Steel Fasteners M4x16,269,"National Fasteners & Hardware, Faridabad",6 days
+04/02/2026,RM-201,Free Cutting Brass Rod 12mm, 198 ,"Shree Ganesh Metals, Jamnagar",6
+04/04/2026,RM-201,Free Cutting Brass Rod 12mm,198,"National Fasteners & Hardware, Faridabad",10
+2026-04-04,RM-203,Cold Rolled Steel Sheet 1.2mm,173,"National Fasteners & Hardware, Faridabad",16
+04/06/2026,RM-204,Phenolic Bakelite Powder Grade B,183,Kores Chemicals Industrial Ltd,2
+06-04-2026,RM-206,Zinc Electroplating Chemical,110 ltr,"Shree Ganesh Metals, Jamnagar",6
+08/04/2026,RM-202,Electrolytic Copper Strip 25x3,186,Hindalco Copper & Brass Distributors,13
+04/10/2026,RM-205,Stainless Steel Fasteners M4x16,150 kg,Kores Chemicals Industrial Ltd,7
+04/10/2026,RM-206,Zinc Electroplating Chemical,104,"Tata Steel Service Center, Ludhiana",7
+14-04-2026,RM-201,Free Cutting Brass Rod 12mm,157,"Shree Ganesh Metals, Jamnagar",7
+14-04-2026,RM-203,Cold Rolled Steel Sheet 1.2mm,155,"Shree Ganesh Metals, Jamnagar",16 days
+18-04-2026,RM-202,Electrolytic Copper Strip 25x3,137,"Tata Steel Service Center, Ludhiana",13
+  23/04/2026  ,RM-202,Electrolytic Copper Strip 25x3, 175 ,"Shree Ganesh Metals, Jamnagar",15
+  25/04/2026  ,RM-205,Stainless Steel Fasteners M4x16,188,Kores Chemicals Industrial Ltd,4
+26-04-2026,RM-205,Stainless Steel Fasteners M4x16,174,"Tata Steel Service Center, Ludhiana",6
+27/04/2026,RM-202,Electrolytic Copper Strip 25x3,173,"Apex Polymers & Resins, Vapi",7 days
+30-04-2026,RM-203,Cold Rolled Steel Sheet 1.2mm,182,Hindalco Copper & Brass Distributors,11
+30/04/2026,RM-204,Phenolic Bakelite Powder Grade B,,"National Fasteners & Hardware, Faridabad",5
+30/04/2026,RM-205,Stainless Steel Fasteners M4x16,174 kg,"Shree Ganesh Metals, Jamnagar",9
+2026-04-30,RM-206,Zinc Electroplating Chemical,69 ltr,"Shree Ganesh Metals, Jamnagar",8
+  01/05/2026  ,RM-202,Electrolytic Copper Strip 25x3,186,Kores Chemicals Industrial Ltd,14
+  01/05/2026  ,RM-205,Stainless Steel Fasteners M4x16,185,Kores Chemicals Industrial Ltd,7
+2026-05-04,RM-205,Stainless Steel Fasteners M4x16,145,"Apex Polymers & Resins, Vapi",8
+04/05/2026,RM-206,Zinc Electroplating Chemical,67,"Tata Steel Service Center, Ludhiana",4
+2026-05-05,RM-205,Stainless Steel Fasteners M4x16,161,"National Fasteners & Hardware, Faridabad",9
+2026-05-06,RM-204,Phenolic Bakelite Powder Grade B,201 kg,"Apex Polymers & Resins, Vapi",4
+06-05-2026,RM-206,Zinc Electroplating Chemical,108,Kores Chemicals Industrial Ltd,9
+07/05/2026,RM-201,Free Cutting Brass Rod 12mm,128,"National Fasteners & Hardware, Faridabad",7 days
+08-05-2026,RM-202,Electrolytic Copper Strip 25x3,139,"Shree Ganesh Metals, Jamnagar",15
+13/05/2026,RM-202,Electrolytic Copper Strip 25x3, 125 ,"Shree Ganesh Metals, Jamnagar",10 days
+15/05/2026,RM-202,Electrolytic Copper Strip 25x3,173,"Tata Steel Service Center, Ludhiana",8
+2026-05-16,RM-202,Electrolytic Copper Strip 25x3, 199 ,"National Fasteners & Hardware, Faridabad",12
+16/05/2026,RM-203,Cold Rolled Steel Sheet 1.2mm,125,"National Fasteners & Hardware, Faridabad",15
+16/05/2026,RM-204,Phenolic Bakelite Powder Grade B,124,"National Fasteners & Hardware, Faridabad",8
+17/05/2026,RM-206,Zinc Electroplating Chemical,91,"Shree Ganesh Metals, Jamnagar",5
+  19/05/2026  ,RM-203,Cold Rolled Steel Sheet 1.2mm,207,"Apex Polymers & Resins, Vapi",17 days
+  21/05/2026  ,RM-205,Stainless Steel Fasteners M4x16,193,"Apex Polymers & Resins, Vapi",6
+23-05-2026,RM-203,Cold Rolled Steel Sheet 1.2mm,171,"Apex Polymers & Resins, Vapi",13
+24/05/2026,RM-201,Free Cutting Brass Rod 12mm,206,"National Fasteners & Hardware, Faridabad",11 days
+25/05/2026,RM-204,Phenolic Bakelite Powder Grade B,181 kg,"Apex Polymers & Resins, Vapi",10
+25/05/2026,RM-206,Zinc Electroplating Chemical,82,"Shree Ganesh Metals, Jamnagar",7 days
+26-05-2026,RM-201,Free Cutting Brass Rod 12mm,190,Kores Chemicals Industrial Ltd,8
+26/05/2026,RM-205,Stainless Steel Fasteners M4x16,198,"Apex Polymers & Resins, Vapi",9
+27-05-2026,RM-201,Free Cutting Brass Rod 12mm,201,"Apex Polymers & Resins, Vapi",9
+29/05/2026,RM-202,Electrolytic Copper Strip 25x3,178,"Shree Ganesh Metals, Jamnagar",9
+  29/05/2026  ,RM-205,Stainless Steel Fasteners M4x16,145,"Apex Polymers & Resins, Vapi",5
+29/05/2026,RM-206,Zinc Electroplating Chemical,88 ltr,"National Fasteners & Hardware, Faridabad",6
+  02/06/2026  ,RM-205,Stainless Steel Fasteners M4x16,171,"Tata Steel Service Center, Ludhiana",4
+2026-06-06,RM-202,Electrolytic Copper Strip 25x3,140,"National Fasteners & Hardware, Faridabad",10
+06/07/2026,RM-204,Phenolic Bakelite Powder Grade B,205,"National Fasteners & Hardware, Faridabad",6
+08-06-2026,RM-205,Stainless Steel Fasteners M4x16,163,"Apex Polymers & Resins, Vapi",6
+  09/06/2026  ,RM-204,Phenolic Bakelite Powder Grade B,182,"Shree Ganesh Metals, Jamnagar",6 days
+11/06/2026,RM-204,Phenolic Bakelite Powder Grade B,152,"National Fasteners & Hardware, Faridabad",8
+06/12/2026,RM-202,Electrolytic Copper Strip 25x3, 206 ,"Apex Polymers & Resins, Vapi",12 days
+2026-06-12,RM-205,Stainless Steel Fasteners M4x16,186,"Apex Polymers & Resins, Vapi",8 days
+14-06-2026,RM-206,Zinc Electroplating Chemical,68,Hindalco Copper & Brass Distributors,11
+2026-06-15,RM-202,Electrolytic Copper Strip 25x3,197,Kores Chemicals Industrial Ltd,10
+  16/06/2026  ,RM-206,Zinc Electroplating Chemical,107,"National Fasteners & Hardware, Faridabad",10 days
+18/06/2026,RM-201,Free Cutting Brass Rod 12mm, 174 ,"Apex Polymers & Resins, Vapi",6
+2026-06-18,RM-206,Zinc Electroplating Chemical,111,"National Fasteners & Hardware, Faridabad",8
+19-06-2026,RM-204,Phenolic Bakelite Powder Grade B,134,Kores Chemicals Industrial Ltd,4
+20-06-2026,RM-202,Electrolytic Copper Strip 25x3,171,Kores Chemicals Industrial Ltd,7
+20-06-2026,RM-204,Phenolic Bakelite Powder Grade B,165,Kores Chemicals Industrial Ltd,9
+2026-06-20,RM-206,Zinc Electroplating Chemical,79,"National Fasteners & Hardware, Faridabad",5
+23/06/2026,RM-201,Free Cutting Brass Rod 12mm,122,"National Fasteners & Hardware, Faridabad",9
+24/06/2026,RM-201,Free Cutting Brass Rod 12mm, 197 ,"Tata Steel Service Center, Ludhiana",6
+25/06/2026,RM-201,Free Cutting Brass Rod 12mm,,Kores Chemicals Industrial Ltd,11 days
+28/06/2026,RM-201,Free Cutting Brass Rod 12mm,151,"National Fasteners & Hardware, Faridabad",11
+07/01/2026,RM-201,Free Cutting Brass Rod 12mm,110 kg,"Tata Steel Service Center, Ludhiana",4
+  02/07/2026  ,RM-203,Cold Rolled Steel Sheet 1.2mm, 85 ,"National Fasteners & Hardware, Faridabad",12
+  05/07/2026  ,RM-204,Phenolic Bakelite Powder Grade B,113,"Shree Ganesh Metals, Jamnagar",5
+  06/07/2026  ,RM-201,Free Cutting Brass Rod 12mm,91,Kores Chemicals Industrial Ltd,4
+07/07/2026,RM-204,Phenolic Bakelite Powder Grade B,134 kg,"Apex Polymers & Resins, Vapi",5
+07/09/2026,RM-203,Cold Rolled Steel Sheet 1.2mm,88,"Tata Steel Service Center, Ludhiana",13 days
+2026-07-10,RM-203,Cold Rolled Steel Sheet 1.2mm,96,"National Fasteners & Hardware, Faridabad",18
+2026-07-17,RM-204,Phenolic Bakelite Powder Grade B,135,"Tata Steel Service Center, Ludhiana",4 days
+18/07/2026,RM-201,Free Cutting Brass Rod 12mm,91,"Apex Polymers & Resins, Vapi",11
+20-07-2026,RM-204,Phenolic Bakelite Powder Grade B,117,"Apex Polymers & Resins, Vapi",10
+20/07/2026,RM-206,Zinc Electroplating Chemical, 56 ,"Tata Steel Service Center, Ludhiana",3 days
+21/07/2026,RM-206,Zinc Electroplating Chemical,71,Kores Chemicals Industrial Ltd,7 days
+  23/07/2026  ,RM-202,Electrolytic Copper Strip 25x3,112,,15
+24/07/2026,RM-202,Electrolytic Copper Strip 25x3,,Kores Chemicals Industrial Ltd,14
+24/07/2026,RM-205,Stainless Steel Fasteners M4x16,111,"Apex Polymers & Resins, Vapi",8 days
+2026-07-25,RM-206,Zinc Electroplating Chemical,58,Hindalco Copper & Brass Distributors,6
+26-07-2026,RM-206,Zinc Electroplating Chemical,65 ltr,Hindalco Copper & Brass Distributors,9
+29/07/2026,RM-206,Zinc Electroplating Chemical,74,"Shree Ganesh Metals, Jamnagar",11 days
+2026-07-31,RM-201,Free Cutting Brass Rod 12mm,100 kg,"Apex Polymers & Resins, Vapi",10 days
+31/07/2026,RM-204,Phenolic Bakelite Powder Grade B,120,"Shree Ganesh Metals, Jamnagar",2
+02/08/2026,RM-204,Phenolic Bakelite Powder Grade B,107,"National Fasteners & Hardware, Faridabad",5
+06/08/2026,RM-203,Cold Rolled Steel Sheet 1.2mm,143,Kores Chemicals Industrial Ltd,12
+08/07/2026,RM-204,Phenolic Bakelite Powder Grade B, 90 ,"National Fasteners & Hardware, Faridabad",8
+  08/08/2026  ,RM-203,Cold Rolled Steel Sheet 1.2mm, 119 ,Kores Chemicals Industrial Ltd,17 days
+2026-08-13,RM-204,Phenolic Bakelite Powder Grade B, 103 ,"Apex Polymers & Resins, Vapi",9
+14-08-2026,RM-203,Cold Rolled Steel Sheet 1.2mm, 121 ,"Shree Ganesh Metals, Jamnagar",16 days
+14-08-2026,RM-204,Phenolic Bakelite Powder Grade B,114,Kores Chemicals Industrial Ltd,9
+16/08/2026,RM-204,Phenolic Bakelite Powder Grade B,97,"Shree Ganesh Metals, Jamnagar",2
+  19/08/2026  ,RM-201,Free Cutting Brass Rod 12mm,132,Kores Chemicals Industrial Ltd,11 days
+2026-08-20,RM-206,Zinc Electroplating Chemical,,Kores Chemicals Industrial Ltd,3
+22-08-2026,RM-206,Zinc Electroplating Chemical,50,"National Fasteners & Hardware, Faridabad",6
+25/08/2026,RM-205,Stainless Steel Fasteners M4x16,116,Kores Chemicals Industrial Ltd,4
+27-08-2026,RM-201,Free Cutting Brass Rod 12mm,120,Hindalco Copper & Brass Distributors,12
+30/08/2026,RM-201,Free Cutting Brass Rod 12mm,129,"Tata Steel Service Center, Ludhiana",6
+  30/08/2026  ,RM-203,Cold Rolled Steel Sheet 1.2mm,~145,"Shree Ganesh Metals, Jamnagar",16
+01-09-2026,RM-202,Electrolytic Copper Strip 25x3,192 kg,"Shree Ganesh Metals, Jamnagar",11
+09/03/2026,RM-201,Free Cutting Brass Rod 12mm,127,"Tata Steel Service Center, Ludhiana",4 days
+04-09-2026,RM-201,Free Cutting Brass Rod 12mm,~200,"National Fasteners & Hardware, Faridabad",9
+  04/09/2026  ,RM-205,Stainless Steel Fasteners M4x16,198,Kores Chemicals Industrial Ltd,5
+09/04/2026,RM-206,Zinc Electroplating Chemical,69,Kores Chemicals Industrial Ltd,5
+09/05/2026,RM-203,Cold Rolled Steel Sheet 1.2mm,168,"National Fasteners & Hardware, Faridabad",16
+06-09-2026,RM-206,Zinc Electroplating Chemical,66,"National Fasteners & Hardware, Faridabad",4
+09/07/2026,RM-202,Electrolytic Copper Strip 25x3,187 kg,"National Fasteners & Hardware, Faridabad",15
+  07/09/2026  ,RM-203,Cold Rolled Steel Sheet 1.2mm,124,"Shree Ganesh Metals, Jamnagar",12
+2026-09-07,RM-205,Stainless Steel Fasteners M4x16,132,"Shree Ganesh Metals, Jamnagar",2 days
+09/08/2026,RM-206,Zinc Electroplating Chemical,77,Kores Chemicals Industrial Ltd,6
+11-09-2026,RM-201,Free Cutting Brass Rod 12mm,191,Kores Chemicals Industrial Ltd,9
+12/09/2026,RM-204,Phenolic Bakelite Powder Grade B,203,"Apex Polymers & Resins, Vapi",5
+2026-09-19,RM-206,Zinc Electroplating Chemical,67,Kores Chemicals Industrial Ltd,8
+21/09/2026,RM-202,Electrolytic Copper Strip 25x3,157 kg,Hindalco Copper & Brass Distributors,10
+22-09-2026,RM-204,Phenolic Bakelite Powder Grade B,161,Kores Chemicals Industrial Ltd,4
+2026-09-27,RM-201,Free Cutting Brass Rod 12mm,152,"Tata Steel Service Center, Ludhiana",4
+27/09/2026,RM-205,Stainless Steel Fasteners M4x16,185,"Shree Ganesh Metals, Jamnagar",3
+27/09/2026,RM-206,Zinc Electroplating Chemical, 78 ,Kores Chemicals Industrial Ltd,10
+2026-09-29,RM-201,Free Cutting Brass Rod 12mm,203,"Apex Polymers & Resins, Vapi",6
+10/01/2026,RM-202,Electrolytic Copper Strip 25x3, 339 ,"Apex Polymers & Resins, Vapi",10
+2026-10-02,RM-204,Phenolic Bakelite Powder Grade B,330,Kores Chemicals Industrial Ltd,2
+02/10/2026,RM-206,Zinc Electroplating Chemical, 262 ,"National Fasteners & Hardware, Faridabad",9
+  03/10/2026  ,RM-202,Electrolytic Copper Strip 25x3,416,"Tata Steel Service Center, Ludhiana",12
+03-10-2026,RM-204,Phenolic Bakelite Powder Grade B,302,,5
+  05/10/2026  ,RM-201,Free Cutting Brass Rod 12mm,339,"National Fasteners & Hardware, Faridabad",8
+  05/10/2026  ,RM-204,Phenolic Bakelite Powder Grade B,378 kg,Hindalco Copper & Brass Distributors,10 days
+06-10-2026,RM-203,Cold Rolled Steel Sheet 1.2mm,474,"Apex Polymers & Resins, Vapi",14
+06-10-2026,RM-204,Phenolic Bakelite Powder Grade B,474,Hindalco Copper & Brass Distributors,9
+10/10/2026,RM-204,Phenolic Bakelite Powder Grade B,408,"National Fasteners & Hardware, Faridabad",3
+  11/10/2026  ,RM-205,Stainless Steel Fasteners M4x16,346,"Apex Polymers & Resins, Vapi",4 days
+12/10/2026,RM-201,Free Cutting Brass Rod 12mm, 306 ,Kores Chemicals Industrial Ltd,8
+  12/10/2026  ,RM-205,Stainless Steel Fasteners M4x16,428,"National Fasteners & Hardware, Faridabad",2
+13/10/2026,RM-205,Stainless Steel Fasteners M4x16,466,Kores Chemicals Industrial Ltd,6 days
+  15/10/2026  ,RM-201,Free Cutting Brass Rod 12mm,368,,6
+2026-10-16,RM-204,Phenolic Bakelite Powder Grade B,362,"Shree Ganesh Metals, Jamnagar",2
+20/10/2026,RM-203,Cold Rolled Steel Sheet 1.2mm,300,Kores Chemicals Industrial Ltd,16
+22-10-2026,RM-201,Free Cutting Brass Rod 12mm,224,"Shree Ganesh Metals, Jamnagar",9
+23/10/2026,RM-201,Free Cutting Brass Rod 12mm,297,Kores Chemicals Industrial Ltd,12
+23/10/2026,RM-205,Stainless Steel Fasteners M4x16,233,"Apex Polymers & Resins, Vapi",5
+24/10/2026,RM-201,Free Cutting Brass Rod 12mm,,"National Fasteners & Hardware, Faridabad",9
+24/10/2026,RM-202,Electrolytic Copper Strip 25x3, 308 ,"Tata Steel Service Center, Ludhiana",15
+2026-10-24,RM-206,Zinc Electroplating Chemical,134,"National Fasteners & Hardware, Faridabad",6 days
+2026-10-25,RM-201,Free Cutting Brass Rod 12mm,231,"National Fasteners & Hardware, Faridabad",7
+  25/10/2026  ,RM-202,Electrolytic Copper Strip 25x3,,Hindalco Copper & Brass Distributors,11
+2026-10-27,RM-205,Stainless Steel Fasteners M4x16,249,"Tata Steel Service Center, Ludhiana",2
+28/10/2026,RM-205,Stainless Steel Fasteners M4x16,298,"National Fasteners & Hardware, Faridabad",2 days
+29/10/2026,RM-202,Electrolytic Copper Strip 25x3,254 kg,Kores Chemicals Industrial Ltd,13
+30/10/2026,RM-203,Cold Rolled Steel Sheet 1.2mm,355,Kores Chemicals Industrial Ltd,14
+31/10/2026,RM-203,Cold Rolled Steel Sheet 1.2mm,291,"Apex Polymers & Resins, Vapi",15
+31/10/2026,RM-205,Stainless Steel Fasteners M4x16,429,Kores Chemicals Industrial Ltd,4
+12/03/2025,RM-203,Cold Rolled Steel Sheet 1.2mm,236,"National Fasteners & Hardware, Faridabad",16
+01-09-2026,RM-202,Electrolytic Copper Strip 25x3,192 kg,"Shree Ganesh Metals, Jamnagar",11
+12-12-2024,RM-206,Zinc Electroplating Chemical,,"Shree Ganesh Metals, Jamnagar",8
+  25/04/2025  ,RM-202,Electrolytic Copper Strip 25x3,210,"Tata Steel Service Center, Ludhiana",15
+02-02-2026,RM-205,Stainless Steel Fasteners M4x16,161,Kores Chemicals Industrial Ltd,4 days

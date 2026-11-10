@@ -1,0 +1,27 @@
+# Godam AI: Demand & Inventory Forecasting for Manufacturing SMEs
+# "Aapka godam, ab smart."
+
+# Data Processing & Numerical Computing
+# Note: Supports Python 3.9 through Python 3.12+
+pandas>=2.0.0; python_version >= "3.10"
+pandas>=1.5.3,<2.3.0; python_version < "3.10"
+numpy>=1.24.0; python_version >= "3.10"
+numpy>=1.26.0,<2.0.0; python_version < "3.10"
+openpyxl>=3.1.2
+
+# Time Series & Forecasting (Prophet with fallback to statsmodels ExponentialSmoothing)
+statsmodels>=0.14.0
+prophet>=1.1.5; python_version >= "3.10"
+
+# Visualization & Reporting
+plotly>=5.18.0
+fpdf2>=2.7.7
+
+# Natural Language Assistant (Claude)
+anthropic>=0.18.0
+
+# Web Application
+streamlit>=1.30.0
+
+# Testing
+pytest>=7.4.0

@@ -1,0 +1,16 @@
+Item_Code / SKU,Item Name (विवरण),Type (Raw/Finished),Current Qty (स्टॉक मात्रा),Unit (इकाई),Last Movement Date,Unit Cost (₹ Rate)
+FG-101,Brass Terminal Connector 15A,finished,213,pcs,31/10/2026,18.5
+FG-102,Copper Busbar Link 200A,finished,71,pcs,30/10/2026,145.0
+FG-103,Mild Steel Enclosure Box 8x6,finished,194,pcs,31/10/2026,320.0
+FG-104,Bakelite Base Plate 4-Way,finished,144 pcs,pcs,30/10/2026,₹ 42.00
+FG-105,Rotary Cam Switch 32A,finished,107,pcs,29/10/2026,210.0
+FG-106,DIN Rail Mounting Channel 1m,finished,63,mtr,30/10/2026,55.0
+FG-107,Industrial Plug Socket 16A 3Pin,finished,71,pcs,31/10/2026,95.0
+FG-108,Legacy Bakelite Fuse Base 63A,finished,280,pcs,30/01/2026,120.0
+RM-201,Free Cutting Brass Rod 12mm,raw,455,kg,25/10/2026,460.0
+RM-202,Electrolytic Copper Strip 25x3,raw,416 kg,kg,29/10/2026,780.0
+RM-203,Cold Rolled Steel Sheet 1.2mm,raw,235,kg,31/10/2026,72.0
+RM-204,Phenolic Bakelite Powder Grade B,raw,362 kg,kg,16/10/2026,115.0
+RM-205,Stainless Steel Fasteners M4x16,raw,112 kg,kg,31/10/2026,230.0
+RM-206,Zinc Electroplating Chemical,raw,120 ltr,ltr,24/10/2026,₹ 180.00
+RM-207,Lead-Alloy Solder Wire 60/40,raw,350 kg,kg,20/12/2025,₹ 950.00
