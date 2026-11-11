@@ -172,6 +172,9 @@ if "data_loaded" not in st.session_state:
     st.session_state["purchases_report"] = None
     st.session_state["stock_report"] = None
 
+st.session_state.setdefault("data_updated_at", None)
+st.session_state.setdefault("data_source", None)
+
 LABELS = {
     "English": {
         "tagline": '"Aapka godam, ab smart."',
@@ -190,6 +193,7 @@ LABELS = {
         "kpi_reorder": "Items to Reorder This Week",
         "no_data_msg": "No factory data loaded yet. Please open **1. Data Upload** to load sample files or upload your Excel ledgers.",
         "sample_btn": "Load 24-Month Factory Sample Data",
+        "update_btn": "🔄 Update factory data",
     },
     "Hindi": {
         "tagline": '"आपका गोदाम, अब स्मार्ट।"',
@@ -208,6 +212,7 @@ LABELS = {
         "kpi_reorder": "इस सप्ताह ऑर्डर करने वाले सामान",
         "no_data_msg": "अभी कोई डेटा लोड नहीं है। कृपया **1. डेटा अपलोड** में जाकर सैंपल डेटा लोड करें या अपनी एक्सेल फाइलें अपलोड करें।",
         "sample_btn": "24 महीने का सैंपल डेटा लोड करें",
+        "update_btn": "🔄 फैक्ट्री डेटा अपडेट करें",
     },
 }
 
@@ -235,6 +240,8 @@ def load_builtin_sample_data():
     st.session_state["stock_df"] = stock_df
     st.session_state["stock_report"] = stock_rep
     st.session_state["data_loaded"] = True
+    st.session_state["data_updated_at"] = datetime.now()
+    st.session_state["data_source"] = "Sample data"
 
 
 # Auto-load built-in sample data on first launch so the dashboard is immediately interactive
@@ -251,25 +258,39 @@ if not st.session_state["data_loaded"]:
 
 st.sidebar.markdown(f"## 🏭 Godam AI\n*{T['tagline']}*")
 
-page = st.sidebar.radio(
+if st.sidebar.button(T["update_btn"], use_container_width=True):
+    st.session_state["navigation"] = "upload"
+    st.rerun()
+
+navigation_pages = [
+    "upload",
+    "overview",
+    "forecast",
+    "alerts",
+    "deadstock",
+    "assistant",
+    "report",
+    "settings",
+]
+selected_page = st.sidebar.radio(
     "Navigation:",
-    [
-        T["nav_upload"],
-        T["nav_overview"],
-        T["nav_forecast"],
-        T["nav_alerts"],
-        T["nav_deadstock"],
-        T["nav_assistant"],
-        T["nav_report"],
-        T["nav_settings"],
-    ],
+    navigation_pages,
+    format_func=lambda page_key: T[f"nav_{page_key}"],
     index=1 if st.session_state["data_loaded"] else 0,
+    key="navigation",
 )
+page = T[f"nav_{selected_page}"]
 
 st.sidebar.markdown("---")
 if st.session_state["data_loaded"]:
     st.sidebar.success("✅ Factory Ledger Active")
     st.sidebar.caption(f"Sales: {len(st.session_state['sales_df']):,} rows | Stock: {len(st.session_state['stock_df'])} SKUs")
+    if st.session_state["data_source"]:
+        st.sidebar.caption(f"Source: {st.session_state['data_source']}")
+    if st.session_state["data_updated_at"]:
+        st.sidebar.caption(
+            f"Last updated: {st.session_state['data_updated_at']:%d %b %Y, %I:%M %p}"
+        )
 else:
     st.sidebar.warning("⚠️ No Ledger Loaded")
 
@@ -311,6 +332,20 @@ if page == T["nav_upload"]:
     st.markdown('<div class="main-title">📁 Data Upload & Quality Cleaner</div>', unsafe_allow_html=True)
     st.markdown('<div class="sub-tagline">Upload messy Excel or Tally/Vyapar CSV files. Godam AI automatically maps Hindi/English columns and cleans errors.</div>', unsafe_allow_html=True)
 
+    if st.session_state["data_loaded"]:
+        last_updated = st.session_state["data_updated_at"]
+        updated_text = (
+            f" Last updated {last_updated:%d %b %Y, %I:%M %p}."
+            if last_updated
+            else ""
+        )
+        st.info(
+            f"Upload complete, up-to-date versions of all three ledgers to replace the current data.{updated_text} "
+            "Your current data stays active unless all new files are processed successfully."
+        )
+    else:
+        st.info("Upload your latest Sales, Purchases, and Stock files to get started.")
+
     col_sample, col_or = st.columns([2, 3])
     with col_sample:
         if st.button(f"⚡ {T['sample_btn']}", type="primary", use_container_width=True):
@@ -331,7 +366,12 @@ if page == T["nav_upload"]:
         f_stock = st.file_uploader("3. Current Stock", type=["csv", "xlsx", "xls"], help="Must contain item, current stock, rate")
 
     if f_sales and f_purch and f_stock:
-        if st.button("🚀 Process & Clean Uploaded Files", use_container_width=True):
+        process_label = (
+            "🔄 Update Factory Data"
+            if st.session_state["data_loaded"]
+            else "🚀 Process & Clean Uploaded Files"
+        )
+        if st.button(process_label, use_container_width=True):
             try:
                 with st.spinner("Cleaning messy columns, converting mixed dates, and removing duplicates..."):
                     s_df, s_rep = load_sales(f_sales)
@@ -345,11 +385,16 @@ if page == T["nav_upload"]:
                     st.session_state["stock_df"] = st_df
                     st.session_state["stock_report"] = st_rep
                     st.session_state["data_loaded"] = True
+                    st.session_state["data_updated_at"] = datetime.now()
+                    st.session_state["data_source"] = "Uploaded ledgers"
 
-                st.success("🎉 All files loaded and cleaned successfully!")
+                st.success("🎉 Factory data updated successfully!")
                 st.rerun()
             except Exception as e:
-                st.error(f"❌ Error processing files: {e}. Please ensure files are valid Excel or CSV.")
+                st.error(
+                    f"❌ Error processing files: {e}. Please ensure files are valid Excel or CSV. "
+                    "Your previously loaded data has not been changed."
+                )
 
     # Data Quality Report Card
     if st.session_state["data_loaded"]:
