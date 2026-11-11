@@ -18,6 +18,7 @@ Godam AI reads a factory's own sales, purchase, and stock files and tells the ow
 ## Features
 
 - **Excel/CSV upload** with automatic column detection and data cleaning
+- **Data updates** by uploading the latest sales, purchase, and stock ledgers; the dashboard records the last successful update
 - **Demand forecasting** per product for the next 12 weeks, with confidence ranges
 - **Automatic model selection** (moving average, exponential smoothing, Prophet, Croston for slow movers) based on backtesting
 - **Reorder alerts** with safety stock, reorder point, and recommended order quantity
@@ -76,6 +77,10 @@ Godam AI accepts Excel (.xlsx) or CSV files. Column names are matched automatica
 3. **Plan inventory:** safety stock, reorder points, and order quantities are calculated for each material.
 4. **Alert:** items are ranked as Critical, Soon, or OK, with clear instructions on what to order and by when.
 5. **Free cash:** dead and slow-moving stock is listed with the rupee value locked in it.
+
+## Updating Data
+
+Use **Update factory data** in the Streamlit sidebar to open the upload page. Upload complete, up-to-date Sales, Purchases, and Stock files, then select **Update Factory Data**. All three files are cleaned before replacing the current datasets; if processing fails, the previously loaded data remains active. The sidebar shows the time of the last successful update. Updates are held in the current Streamlit session, so upload the files again in a new session.
 
 ## Privacy
 

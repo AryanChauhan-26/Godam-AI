@@ -217,6 +217,11 @@
     <div class="page-sub">Upload your Excel/CSV files or load 24-month factory sample data.</div>
   </div>
 
+  <div class="alert-ok">
+    <div class="alert-title">Keep your data up to date</div>
+    <div class="alert-msg">The HTML preview uses fixed sample data. To update live factory data, run the Streamlit app and upload your latest Sales, Purchases, and Stock files from this page.</div>
+  </div>
+
   <div class="card">
     <div class="card-title"><span>⚡</span>Quick Start with Sample Data</div>
     <p style="font-size:.88rem;color:var(--slate);margin-bottom:16px;">
@@ -261,6 +266,7 @@
   <div class="page-header">
     <div class="page-title">📊 Factory Overview</div>
     <div class="page-sub">Sample Electric Co. · As of November 2026 · 15 SKUs · 24 months data</div>
+    <button class="sample-btn" style="margin-top:14px" onclick="showPage('upload')">🔄 Update data</button>
   </div>
 
   <!-- KPI Cards -->
@@ -918,4 +924,3 @@ function quickChat(q) {
 </script>
 </body>
 </html>
-
