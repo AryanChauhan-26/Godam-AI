@@ -18,7 +18,7 @@ Godam AI reads a factory's own sales, purchase, and stock files and tells the ow
 ## Features
 
 - **Excel/CSV upload** with automatic column detection and data cleaning
-- **Data updates** by uploading the latest sales, purchase, and stock ledgers; the dashboard records the last successful update
+now - **Data updates** by uploading the latest sales, purchase, and stock ledgers; the dashboard records the last successful update
 - **Demand forecasting** per product for the next 12 weeks, with confidence ranges
 - **Automatic model selection** (moving average, exponential smoothing, Prophet, Croston for slow movers) based on backtesting
 - **Reorder alerts** with safety stock, reorder point, and recommended order quantity
