@@ -20,23 +20,27 @@
     --white:  #FFFFFF;
     --border: #E2E8F0;
     --text:   #0F172A;
-    --radius: 10px;
-    --shadow: 0 1px 6px rgba(0,0,0,0.07);
+    --radius: 14px;
+    --shadow: 0 2px 12px rgba(15,23,42,0.05);
+    --shadow-hover: 0 8px 24px rgba(15,23,42,0.08);
   }
-  body { font-family: 'Segoe UI', system-ui, sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f3f6fb; color: var(--text); min-height: 100vh; }
+  button, input, select { font: inherit; }
+  button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid rgba(245,158,11,.55); outline-offset: 2px; }
 
   /* ── LAYOUT ─────────────────────────────────────────────────────────── */
   .shell { display: flex; min-height: 100vh; }
   .sidebar {
-    width: 230px; min-width: 230px; background: var(--navy);
+    width: 248px; min-width: 248px; background: var(--navy);
     display: flex; flex-direction: column; padding: 0;
     position: fixed; top: 0; left: 0; height: 100vh; z-index: 100;
     overflow-y: auto;
   }
-  .main { margin-left: 230px; flex: 1; padding: 28px 32px; max-width: 1300px; }
+  .main { margin-left: 248px; flex: 1; padding: 0 36px 36px; min-width: 0; max-width: 1600px; }
+  .sidebar-backdrop { display: none; }
 
   /* ── SIDEBAR ────────────────────────────────────────────────────────── */
-  .sidebar-logo { padding: 24px 20px 16px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .sidebar-logo { padding: 26px 22px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); }
   .sidebar-logo .brand { font-size: 1.3rem; font-weight: 800; color: #fff; letter-spacing: -0.3px; }
   .sidebar-logo .tagline { font-size: 0.72rem; color: var(--amber2); font-weight: 600; margin-top: 2px; }
   .sidebar-logo .pill {
@@ -46,32 +50,43 @@
   }
   .nav-section { padding: 14px 12px 4px; font-size: 0.6rem; color: rgba(255,255,255,0.4); font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
   .nav-item {
-    display: flex; align-items: center; gap: 10px; padding: 10px 20px;
+    display: flex; align-items: center; gap: 10px; width: calc(100% - 20px); margin: 2px 10px; padding: 11px 12px;
     color: rgba(255,255,255,0.65); font-size: 0.88rem; font-weight: 500;
-    cursor: pointer; border-left: 3px solid transparent; transition: all .15s;
-    text-decoration: none;
+    cursor: pointer; border: 0; border-radius: 9px; background: transparent; text-align: left;
+    transition: background .15s, color .15s;
   }
   .nav-item:hover { background: rgba(255,255,255,0.08); color: #fff; }
-  .nav-item.active { background: rgba(255,255,255,0.12); color: #fff; border-left-color: var(--amber2); font-weight: 700; }
+  .nav-item.active { background: rgba(255,255,255,0.13); color: #fff; font-weight: 700; box-shadow: inset 3px 0 var(--amber2); }
   .nav-icon { font-size: 1rem; width: 20px; text-align: center; }
   .sidebar-footer { margin-top: auto; padding: 16px 20px; border-top: 1px solid rgba(255,255,255,0.1); }
   .sidebar-footer p { font-size: 0.65rem; color: rgba(255,255,255,0.35); line-height: 1.6; }
 
+  /* ── TOP BAR ─────────────────────────────────────────────────────────── */
+  .topbar { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 16px; border-bottom: 1px solid var(--border); margin-bottom: 28px; }
+  .topbar-context { color: var(--slate); font-size: .82rem; }
+  .topbar-context strong { color: var(--text); font-weight: 700; }
+  .topbar-right { display: flex; align-items: center; gap: 10px; }
+  .demo-status { display: inline-flex; align-items: center; gap: 7px; padding: 7px 11px; border-radius: 99px; background: #fff; border: 1px solid var(--border); color: #475569; font-size: .76rem; font-weight: 700; white-space: nowrap; }
+  .demo-status::before { content: ''; width: 7px; height: 7px; background: var(--amber2); border-radius: 50%; }
+  .mobile-menu { display: none; border: 1px solid var(--border); border-radius: 9px; background: white; color: var(--navy); width: 40px; height: 40px; font-size: 1.2rem; cursor: pointer; }
+
   /* ── PAGE HEADER ─────────────────────────────────────────────────────── */
   .page-header { margin-bottom: 24px; }
-  .page-title { font-size: 1.7rem; font-weight: 800; color: var(--navy); letter-spacing: -0.4px; }
-  .page-sub { font-size: 0.88rem; color: var(--slate); margin-top: 3px; }
+  .page-title { font-size: clamp(1.45rem, 2.2vw, 1.85rem); font-weight: 800; color: var(--navy); letter-spacing: -0.6px; }
+  .page-sub { font-size: 0.9rem; color: var(--slate); margin-top: 5px; line-height: 1.5; }
 
   /* ── PAGES ───────────────────────────────────────────────────────────── */
   .page { display: none; }
   .page.active { display: block; }
+  .two-col { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 
   /* ── KPI CARDS ───────────────────────────────────────────────────────── */
   .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 28px; }
   .kpi-card {
     background: var(--white); border: 1px solid var(--border);
-    border-radius: var(--radius); padding: 18px 20px; box-shadow: var(--shadow);
+    border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow); transition: transform .18s, box-shadow .18s;
   }
+  .kpi-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
   .kpi-card.red   { border-top: 3px solid var(--red); }
   .kpi-card.amber { border-top: 3px solid var(--amber2); }
   .kpi-card.green { border-top: 3px solid var(--green); }
@@ -82,8 +97,8 @@
   .kpi-icon { font-size: 1.4rem; margin-bottom: 8px; }
 
   /* ── CARDS ───────────────────────────────────────────────────────────── */
-  .card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px 24px; box-shadow: var(--shadow); margin-bottom: 20px; }
-  .card-title { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+  .card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 22px 24px; box-shadow: var(--shadow); margin-bottom: 20px; }
+  .card-title { font-size: 1rem; font-weight: 700; color: var(--navy); margin-bottom: 18px; display: flex; align-items: center; gap: 8px; }
   .card-title span { font-size: 1.1rem; }
 
   /* ── ALERT BOXES ─────────────────────────────────────────────────────── */
@@ -140,16 +155,20 @@
   .msg.user { align-self: flex-end; background: var(--navy); color: #fff; border-bottom-right-radius: 4px; }
   .msg.bot  { align-self: flex-start; background: var(--bg); border: 1px solid var(--border); border-bottom-left-radius: 4px; }
   .chat-input-row { display: flex; gap: 10px; }
-  .chat-input { flex: 1; padding: 10px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 0.88rem; outline: none; }
+  .chat-input { flex: 1; min-width: 0; padding: 11px 14px; border: 1.5px solid var(--border); border-radius: 8px; font-size: 0.88rem; outline: none; }
   .chat-input:focus { border-color: var(--navy); }
   .chat-send { background: var(--navy); color: #fff; border: none; border-radius: 8px; padding: 10px 18px; font-weight: 700; cursor: pointer; font-size: 0.88rem; }
   .chat-send:hover { background: var(--navy2); }
   .hindi-hint { font-size: 0.75rem; color: var(--slate); margin-top: 8px; }
 
   /* ── UPLOAD PAGE ─────────────────────────────────────────────────────── */
-  .upload-zone { border: 2px dashed var(--border); border-radius: var(--radius); padding: 36px; text-align: center; color: var(--slate); background: var(--white); margin-bottom: 16px; }
+  .upload-zone { border: 1.5px dashed #cbd5e1; border-radius: var(--radius); padding: 26px 20px; text-align: center; color: var(--slate); background: #fbfdff; margin-bottom: 12px; transition: border-color .15s, background .15s; }
+  .upload-zone:focus-within, .upload-zone:hover { border-color: var(--navy2); background: #f8fbff; }
   .upload-zone .icon { font-size: 2.5rem; margin-bottom: 10px; }
   .upload-zone p { font-size: 0.88rem; }
+  .upload-input { display: block; max-width: 100%; margin: 14px auto 0; font-size: .8rem; }
+  .upload-file-status { display: block; margin-top: 8px; font-size: .78rem; color: var(--navy); font-weight: 600; }
+  .upload-note { font-size: .78rem; line-height: 1.5; color: var(--slate); margin: -4px 0 14px; }
   .sample-btn { background: var(--navy); color: #fff; border: none; border-radius: 8px; padding: 12px 24px; font-size: 0.95rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; }
   .sample-btn:hover { background: var(--navy2); }
   .dq-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.88rem; }
@@ -162,7 +181,7 @@
   .setting-row:last-child { border-bottom: none; }
   .setting-label { font-size: 0.9rem; font-weight: 600; }
   .setting-sub { font-size: 0.78rem; color: var(--slate); margin-top: 2px; }
-  .toggle { width: 42px; height: 24px; background: var(--green); border-radius: 12px; cursor: pointer; position: relative; }
+  .toggle { width: 42px; height: 24px; padding: 0; border: 0; background: var(--green); border-radius: 12px; cursor: pointer; position: relative; flex: 0 0 auto; }
   .toggle::after { content: ''; position: absolute; width: 18px; height: 18px; background: #fff; border-radius: 50%; top: 3px; right: 3px; transition: .2s; }
   .toggle.off { background: var(--border); }
   .toggle.off::after { right: auto; left: 3px; }
@@ -170,23 +189,48 @@
 
   /* ── RESPONSIVE ──────────────────────────────────────────────────────── */
   @media (max-width: 900px) {
-    .kpi-grid { grid-template-columns: repeat(2, 1fr); }
-    .sidebar { width: 56px; min-width: 56px; }
-    .sidebar .nav-item span:last-child, .sidebar .tagline, .sidebar-logo .brand, .sidebar-footer p, .nav-section { display: none; }
-    .main { margin-left: 56px; padding: 16px; }
+    .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .sidebar { width: 270px; min-width: 270px; transform: translateX(-100%); visibility: hidden; transition: transform .2s ease; }
+    .sidebar.open { transform: translateX(0); visibility: visible; }
+    .sidebar-backdrop.open { display: block; position: fixed; inset: 0; z-index: 90; background: rgba(15,23,42,.42); }
+    .main { margin-left: 0; padding: 0 24px 28px; }
+    .mobile-menu { display: inline-grid; place-items: center; flex: 0 0 auto; }
+    .topbar { min-height: 68px; margin-bottom: 24px; }
+    .two-col { gap: 14px; }
     .data-label { min-width: 120px; }
   }
-  @media (max-width: 600px) {
-    .kpi-grid { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 640px) {
+    .main { padding: 0 15px 24px; }
+    .topbar { gap: 10px; margin-bottom: 20px; }
+    .topbar-context { font-size: .74rem; }
+    .demo-status { font-size: .68rem; padding: 6px 8px; }
+    .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .kpi-card { padding: 15px; }
+    .kpi-value { font-size: 1.45rem; }
+    .kpi-label { font-size: .64rem; }
+    .kpi-sub { font-size: .72rem; }
+    .two-col { grid-template-columns: 1fr; gap: 0; }
+    .card { padding: 18px 16px; }
+    .chart-wrap { height: 260px; }
+    .chart-wrap-lg { height: 320px; }
     .stat-row { gap: 10px; }
+    .stat-item { min-width: calc(50% - 6px); flex: 1; padding: 10px 12px; }
+    .data-label { min-width: 130px; }
+    .data-val { min-width: 64px; }
+    .upload-zone { padding: 22px 14px; }
+    .chat-input-row { gap: 7px; }
+    .chat-send { padding: 10px 12px; }
+    .setting-row { flex-wrap: wrap; gap: 10px; }
+    .setting-row > input, .setting-row > select { max-width: 100%; }
   }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; } }
 </style>
 </head>
 <body>
 <div class="shell">
 
 <!-- ═══════════════════════════════ SIDEBAR ═══════════════════════════════ -->
-<nav class="sidebar">
+<nav class="sidebar" id="sidebar" aria-label="Main navigation">
   <div class="sidebar-logo">
     <div class="brand">🏭 Godam AI</div>
     <div class="tagline">Aapka godam, ab smart.</div>
@@ -194,27 +238,33 @@
   </div>
 
   <div class="nav-section">Pages</div>
-  <a class="nav-item" onclick="showPage('upload')"><span class="nav-icon">📁</span><span>Data Upload</span></a>
-  <a class="nav-item active" onclick="showPage('overview')"><span class="nav-icon">📊</span><span>Overview</span></a>
-  <a class="nav-item" onclick="showPage('forecast')"><span class="nav-icon">📈</span><span>Forecast</span></a>
-  <a class="nav-item" onclick="showPage('reorder')"><span class="nav-icon">🚨</span><span>Reorder Alerts</span></a>
-  <a class="nav-item" onclick="showPage('deadstock')"><span class="nav-icon">🛑</span><span>Dead Stock</span></a>
-  <a class="nav-item" onclick="showPage('chat')"><span class="nav-icon">💬</span><span>Ask Godam AI</span></a>
-  <a class="nav-item" onclick="showPage('settings')"><span class="nav-icon">⚙️</span><span>Settings</span></a>
+  <button class="nav-item" type="button" data-page="upload" onclick="showPage('upload')"><span class="nav-icon">📁</span><span>Data Upload</span></button>
+  <button class="nav-item active" type="button" data-page="overview" aria-current="page" onclick="showPage('overview')"><span class="nav-icon">📊</span><span>Overview</span></button>
+  <button class="nav-item" type="button" data-page="forecast" onclick="showPage('forecast')"><span class="nav-icon">📈</span><span>Forecast</span></button>
+  <button class="nav-item" type="button" data-page="reorder" onclick="showPage('reorder')"><span class="nav-icon">🚨</span><span>Reorder Alerts</span></button>
+  <button class="nav-item" type="button" data-page="deadstock" onclick="showPage('deadstock')"><span class="nav-icon">🛑</span><span>Dead Stock</span></button>
+  <button class="nav-item" type="button" data-page="chat" onclick="showPage('chat')"><span class="nav-icon">💬</span><span>Ask Godam AI</span></button>
+  <button class="nav-item" type="button" data-page="settings" onclick="showPage('settings')"><span class="nav-icon">⚙️</span><span>Settings</span></button>
 
   <div class="sidebar-footer">
     <p>Godam AI v1.0<br/>15 SKUs · 24 months data<br/>Factory: Sample Electric Co.</p>
   </div>
 </nav>
+<button class="sidebar-backdrop" id="sidebarBackdrop" type="button" aria-label="Close navigation" onclick="toggleSidebar(false)"></button>
 
 <!-- ═══════════════════════════════ MAIN ══════════════════════════════════ -->
 <main class="main">
+<header class="topbar">
+  <button class="mobile-menu" id="mobileMenuButton" type="button" aria-label="Open navigation" aria-expanded="false" onclick="toggleSidebar()">☰</button>
+  <div class="topbar-context"><strong>Sample Electric Co.</strong><span> &nbsp;·&nbsp; Inventory workspace</span></div>
+  <div class="topbar-right"><span class="demo-status">Sample data</span></div>
+</header>
 
 <!-- ══════════════════ PAGE: UPLOAD ══════════════════ -->
-<div id="page-upload" class="page">
+<div id="page-upload" class="page" aria-hidden="true">
   <div class="page-header">
     <div class="page-title">📁 Data Upload</div>
-    <div class="page-sub">Upload your Excel/CSV files or load 24-month factory sample data.</div>
+    <div class="page-sub">Choose files to preview, or open the live app to analyze your factory data.</div>
   </div>
 
   <div class="alert-ok">
@@ -227,25 +277,32 @@
     <p style="font-size:.88rem;color:var(--slate);margin-bottom:16px;">
       Don't have your files ready? Load 24 months of realistic Indian electrical components factory data instantly.
     </p>
-    <button class="sample-btn" onclick="showPage('overview')">⚡ Load 24-Month Factory Sample Data</button>
+    <button class="sample-btn" type="button" onclick="showPage('overview')">⚡ View the sample dashboard</button>
   </div>
 
   <div class="card">
     <div class="card-title"><span>📂</span>Upload Your Files</div>
     <div style="display:grid;gap:12px;">
-      <div class="upload-zone">
+      <label class="upload-zone">
         <div class="icon">📋</div>
         <p><strong>Sales Ledger</strong> (CSV / Excel)<br/><small>Columns: date, product, quantity, customer</small></p>
-      </div>
-      <div class="upload-zone">
+        <input class="upload-input" type="file" accept=".csv,.xls,.xlsx" aria-label="Choose sales ledger file" onchange="showSelectedFile(this)" />
+        <span class="upload-file-status" aria-live="polite"></span>
+      </label>
+      <label class="upload-zone">
         <div class="icon">🛒</div>
         <p><strong>Purchase Ledger</strong> (CSV / Excel)<br/><small>Columns: date, supplier, item, quantity, amount</small></p>
-      </div>
-      <div class="upload-zone">
+        <input class="upload-input" type="file" accept=".csv,.xls,.xlsx" aria-label="Choose purchase ledger file" onchange="showSelectedFile(this)" />
+        <span class="upload-file-status" aria-live="polite"></span>
+      </label>
+      <label class="upload-zone">
         <div class="icon">📦</div>
         <p><strong>Stock Register</strong> (CSV / Excel)<br/><small>Columns: item_code, name, type, qty, unit_cost</small></p>
-      </div>
+        <input class="upload-input" type="file" accept=".csv,.xls,.xlsx" aria-label="Choose stock register file" onchange="showSelectedFile(this)" />
+        <span class="upload-file-status" aria-live="polite"></span>
+      </label>
     </div>
+    <p class="upload-note">Files can be selected here for preview, but this static HTML demo does not upload or analyze them. Use the Streamlit app to process your factory data.</p>
   </div>
 
   <div class="card">
@@ -262,7 +319,7 @@
 </div>
 
 <!-- ══════════════════ PAGE: OVERVIEW ══════════════════ -->
-<div id="page-overview" class="page active">
+<div id="page-overview" class="page active" aria-hidden="false">
   <div class="page-header">
     <div class="page-title">📊 Factory Overview</div>
     <div class="page-sub">Sample Electric Co. · As of November 2026 · 15 SKUs · 24 months data</div>
@@ -298,7 +355,7 @@
   </div>
 
   <!-- Two column section -->
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+  <div class="two-col">
     <div class="card">
       <div class="card-title"><span>📦</span>Stock Health by SKU</div>
       <div class="chart-wrap">
@@ -361,18 +418,18 @@
 </div>
 
 <!-- ══════════════════ PAGE: FORECAST ══════════════════ -->
-<div id="page-forecast" class="page">
+<div id="page-forecast" class="page" aria-hidden="true">
   <div class="page-header">
     <div class="page-title">📈 Demand Forecast</div>
     <div class="page-sub">12-week ahead forecast with confidence band · Croston's Method & Moving Average</div>
   </div>
 
   <div class="product-tabs" id="forecastTabs">
-    <div class="prod-tab active" onclick="switchForecast(0, this)">FG-101 · Brass Terminal</div>
-    <div class="prod-tab" onclick="switchForecast(1, this)">FG-104 · Bakelite Base</div>
-    <div class="prod-tab" onclick="switchForecast(2, this)">FG-103 · MS Enclosure</div>
-    <div class="prod-tab" onclick="switchForecast(3, this)">FG-105 · Rotary Cam Switch</div>
-    <div class="prod-tab" onclick="switchForecast(4, this)">FG-108 · Legacy Fuse</div>
+    <button class="prod-tab active" type="button" aria-pressed="true" onclick="switchForecast(0, this)">FG-101 · Brass Terminal</button>
+    <button class="prod-tab" type="button" aria-pressed="false" onclick="switchForecast(1, this)">FG-104 · Bakelite Base</button>
+    <button class="prod-tab" type="button" aria-pressed="false" onclick="switchForecast(2, this)">FG-103 · MS Enclosure</button>
+    <button class="prod-tab" type="button" aria-pressed="false" onclick="switchForecast(3, this)">FG-105 · Rotary Cam Switch</button>
+    <button class="prod-tab" type="button" aria-pressed="false" onclick="switchForecast(4, this)">FG-108 · Legacy Fuse</button>
   </div>
 
   <div class="card">
@@ -396,7 +453,7 @@
 </div>
 
 <!-- ══════════════════ PAGE: REORDER ALERTS ══════════════════ -->
-<div id="page-reorder" class="page">
+<div id="page-reorder" class="page" aria-hidden="true">
   <div class="page-header">
     <div class="page-title">🚨 Reorder Alerts</div>
     <div class="page-sub">Raw material replenishment · Ranked by urgency · EOQ-optimised order quantities</div>
@@ -475,7 +532,7 @@
 </div>
 
 <!-- ══════════════════ PAGE: DEAD STOCK ══════════════════ -->
-<div id="page-deadstock" class="page">
+<div id="page-deadstock" class="page" aria-hidden="true">
   <div class="page-header">
     <div class="page-title">🛑 Dead Stock & Capital Lockup</div>
     <div class="page-sub">Working capital frozen in idle inventory · Annual carrying cost drain</div>
@@ -502,7 +559,7 @@
     </div>
   </div>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+  <div class="two-col">
     <div class="card">
       <div class="card-title"><span>📊</span>Dead Stock — Cash Locked (₹)</div>
       <div class="chart-wrap">
@@ -548,7 +605,7 @@
 </div>
 
 <!-- ══════════════════ PAGE: CHAT ══════════════════ -->
-<div id="page-chat" class="page">
+<div id="page-chat" class="page" aria-hidden="true">
   <div class="page-header">
     <div class="page-title">💬 Ask Godam AI</div>
     <div class="page-sub">Ask in English or Hindi · Answers only from your factory's numbers</div>
@@ -564,8 +621,8 @@
         </div>
       </div>
       <div class="chat-input-row">
-        <input class="chat-input" id="chatInput" type="text" placeholder="e.g. Is hafte kya order karna hai?" onkeydown="if(event.key==='Enter')sendChat()" />
-        <button class="chat-send" onclick="sendChat()">Send ➤</button>
+        <input class="chat-input" id="chatInput" type="text" aria-label="Ask Godam AI a question" placeholder="e.g. Is hafte kya order karna hai?" onkeydown="if(event.key==='Enter')sendChat()" />
+        <button class="chat-send" type="button" onclick="sendChat()">Send ➤</button>
       </div>
       <div class="hindi-hint">💡 Try: "Kaun sa maal paisa phasa raha hai?" &nbsp;|&nbsp; "What should I order this week?" &nbsp;|&nbsp; "Forecast accuracy kya hai?"</div>
     </div>
@@ -574,17 +631,17 @@
   <div class="card">
     <div class="card-title"><span>⚡</span>Quick Questions</div>
     <div style="display:flex;flex-wrap:wrap;gap:10px;">
-      <button class="prod-tab" onclick="quickChat('Is hafte kya order karna hai?')">Is hafte kya order?</button>
-      <button class="prod-tab" onclick="quickChat('Kaun sa maal paisa phasa raha hai?')">Paisa kahan phasa?</button>
-      <button class="prod-tab" onclick="quickChat('What is my forecast accuracy?')">Forecast accuracy?</button>
-      <button class="prod-tab" onclick="quickChat('Kitne din ka stock bacha hai RM-203 mein?')">RM-203 stock?</button>
-      <button class="prod-tab" onclick="quickChat('Top 3 products by demand?')">Top products?</button>
+      <button class="prod-tab" type="button" onclick="quickChat('Is hafte kya order karna hai?')">Is hafte kya order?</button>
+      <button class="prod-tab" type="button" onclick="quickChat('Kaun sa maal paisa phasa raha hai?')">Paisa kahan phasa?</button>
+      <button class="prod-tab" type="button" onclick="quickChat('What is my forecast accuracy?')">Forecast accuracy?</button>
+      <button class="prod-tab" type="button" onclick="quickChat('Kitne din ka stock bacha hai RM-203 mein?')">RM-203 stock?</button>
+      <button class="prod-tab" type="button" onclick="quickChat('Top 3 products by demand?')">Top products?</button>
     </div>
   </div>
 </div>
 
 <!-- ══════════════════ PAGE: SETTINGS ══════════════════ -->
-<div id="page-settings" class="page">
+<div id="page-settings" class="page" aria-hidden="true">
   <div class="page-header">
     <div class="page-title">⚙️ Settings</div>
     <div class="page-sub">Customise service levels, thresholds, and display language</div>
@@ -626,11 +683,11 @@
     </div>
     <div class="setting-row">
       <div><div class="setting-label">Number Format</div><div class="setting-sub">Indian Lakh/Crore system with ₹</div></div>
-      <div class="toggle" title="Always on"></div>
+      <button class="toggle" type="button" aria-label="Indian number format is always on" aria-pressed="true" title="Always on"></button>
     </div>
     <div class="setting-row">
       <div><div class="setting-label">Auto-load Sample Data on Start</div><div class="setting-sub">Loads demo data when no files uploaded</div></div>
-      <div class="toggle" title="Click to toggle" onclick="this.classList.toggle('off')"></div>
+      <button class="toggle" type="button" aria-label="Auto-load sample data" aria-pressed="true" title="Click to toggle" onclick="this.classList.toggle('off'); this.setAttribute('aria-pressed', String(!this.classList.contains('off')))"></button>
     </div>
   </div>
 
@@ -651,15 +708,39 @@
 <!-- ═══════════════════════════════ SCRIPTS ═══════════════════════════════ -->
 <script>
 // ── NAV ──────────────────────────────────────────────────────────────────
-function showPage(id) {
-  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  document.getElementById('page-' + id).classList.add('active');
+function toggleSidebar(forceOpen) {
+  const sidebar = document.getElementById('sidebar');
+  const backdrop = document.getElementById('sidebarBackdrop');
+  const button = document.getElementById('mobileMenuButton');
+  const open = typeof forceOpen === 'boolean' ? forceOpen : !sidebar.classList.contains('open');
+  sidebar.classList.toggle('open', open);
+  backdrop.classList.toggle('open', open);
+  button.setAttribute('aria-expanded', String(open));
+}
 
-  const icons = {upload:'📁',overview:'📊',forecast:'📈',reorder:'🚨',deadstock:'🛑',chat:'💬',settings:'⚙️'};
-  document.querySelectorAll('.nav-item').forEach(n => {
-    if (n.getAttribute('onclick')?.includes("'" + id + "'")) n.classList.add('active');
+function showPage(id) {
+  const page = document.getElementById('page-' + id);
+  const activeNav = document.querySelector(`.nav-item[data-page="${id}"]`);
+  if (!page || !activeNav) return;
+
+  document.querySelectorAll('.page').forEach(p => {
+    p.classList.toggle('active', p === page);
+    p.setAttribute('aria-hidden', String(p !== page));
   });
+  document.querySelectorAll('.nav-item').forEach(item => {
+    const active = item === activeNav;
+    item.classList.toggle('active', active);
+    if (active) item.setAttribute('aria-current', 'page');
+    else item.removeAttribute('aria-current');
+  });
+  toggleSidebar(false);
+  requestAnimationFrame(() => Object.values(Chart.instances).forEach(chart => chart.resize()));
+}
+
+function showSelectedFile(input) {
+  const file = input.files?.[0];
+  const status = input.parentElement.querySelector('.upload-file-status');
+  status.textContent = file ? `${file.name} selected · preview only` : '';
 }
 
 // ── CHART HELPERS ─────────────────────────────────────────────────────────
@@ -815,7 +896,11 @@ function buildForecastChart(prod) {
 buildForecastChart(forecastProducts[0]);
 
 function switchForecast(idx, el) {
-  document.querySelectorAll('.prod-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('#forecastTabs .prod-tab').forEach(t => {
+    const active = t === el;
+    t.classList.toggle('active', active);
+    t.setAttribute('aria-pressed', String(active));
+  });
   el.classList.add('active');
   const p = forecastProducts[idx];
   document.getElementById('fcTitle').textContent = p.name;
