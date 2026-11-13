@@ -10,9 +10,10 @@ Full Production Dashboard for Indian SME Manufacturing Factory Owners:
   3. 📈 Forecast: SKU-level demand with 12W projections, festival spikes, and tournament scores
   4. 🚨 Reorder Alerts: Critical/Soon/OK ranking with 1-click Excel PO download
   5. 🛑 Dead Stock: Working capital locked, aging chart, and ranked liquidation plan
-  6. 💬 Ask Godam AI: Natural language Q&A in English/Hindi (Anthropic Claude with guardrails)
-  7. 📄 Health Report: One-page executive PDF report download for factory sales meetings
-  8. ⚙️ Settings: Service levels, deadstock days, and bilingual language toggle
+  6. 💰 Cash Locked in Dead Stock: Complete list of dead-stock items
+  7. 💬 Ask Godam AI: Natural language Q&A in English/Hindi (Anthropic Claude with guardrails)
+  8. 📄 Health Report: One-page executive PDF report download for factory sales meetings
+  9. ⚙️ Settings: Service levels, deadstock days, and bilingual language toggle
 """
 
 import io
@@ -184,9 +185,10 @@ LABELS = {
         "nav_forecast": "📈 3. Demand Forecast",
         "nav_alerts": "🚨 4. Reorder Alerts",
         "nav_deadstock": "🛑 5. Dead Stock",
-        "nav_assistant": "💬 6. Ask Godam AI",
-        "nav_report": "📄 7. PDF Health Report",
-        "nav_settings": "⚙️ 8. Settings",
+        "nav_deadstock_items": "💰 6. Cash Locked in Dead Stock",
+        "nav_assistant": "💬 7. Ask Godam AI",
+        "nav_report": "📄 8. PDF Health Report",
+        "nav_settings": "⚙️ 9. Settings",
         "kpi_deadstock": "Cash Locked in Dead Stock",
         "kpi_stockout": "SKUs at Risk of Stockout",
         "kpi_accuracy": "Forecast Model Accuracy",
@@ -203,9 +205,10 @@ LABELS = {
         "nav_forecast": "📈 3. मांग अनुमान (Forecast)",
         "nav_alerts": "🚨 4. रीऑर्डर अलर्ट (Reorder Alerts)",
         "nav_deadstock": "🛑 5. डेड स्टॉक (Dead Stock)",
-        "nav_assistant": "💬 6. गोदाम सहायक (Ask AI)",
-        "nav_report": "📄 7. पीडीएफ रिपोर्ट (Health Report)",
-        "nav_settings": "⚙️ 8. सेटिंग्स (Settings)",
+        "nav_deadstock_items": "💰 6. डेड स्टॉक में फंसा पैसा (Cash Locked)",
+        "nav_assistant": "💬 7. गोदाम सहायक (Ask AI)",
+        "nav_report": "📄 8. पीडीएफ रिपोर्ट (Health Report)",
+        "nav_settings": "⚙️ 9. सेटिंग्स (Settings)",
         "kpi_deadstock": "डेड स्टॉक में फंसा पैसा",
         "kpi_stockout": "14 दिनों में खत्म होने वाले सामान",
         "kpi_accuracy": "औसत मांग अनुमान सटीकता",
@@ -244,6 +247,10 @@ def load_builtin_sample_data():
     st.session_state["data_source"] = "Sample data"
 
 
+def show_deadstock_items():
+    st.session_state["navigation"] = "deadstock_items"
+
+
 # Auto-load built-in sample data on first launch so the dashboard is immediately interactive
 if not st.session_state["data_loaded"]:
     try:
@@ -268,6 +275,7 @@ navigation_pages = [
     "forecast",
     "alerts",
     "deadstock",
+    "deadstock_items",
     "assistant",
     "report",
     "settings",
@@ -472,6 +480,7 @@ elif page == T["nav_overview"]:
             <div class="kpi-sub">{deadstock_rep.deadstock_items_count} idle items ({deadstock_rep.deadstock_share_percentage:.1f}% of godam)</div>
         </div>
         """, unsafe_allow_html=True)
+        st.button("View all dead-stock items", on_click=show_deadstock_items)
 
     with kpi2:
         st.markdown(f"""
@@ -783,6 +792,7 @@ elif page == T["nav_deadstock"]:
 
     st.markdown("---")
     st.markdown("#### 🏆 Liquidation Priority Table (Ranked by Locked Cash)")
+    st.button("View all dead-stock items", on_click=show_deadstock_items)
 
     ds_rows = [item.to_dict() for item in deadstock_rep.ranked_deadstock_items]
     if ds_rows:
@@ -792,7 +802,46 @@ elif page == T["nav_deadstock"]:
 
 
 # =============================================================================
-# PAGE 6: ASK GODAM AI (ANTHROPIC CLAUDE NATURAL LANGUAGE ASSISTANT)
+# PAGE 6: CASH LOCKED IN DEAD STOCK
+# =============================================================================
+
+elif page == T["nav_deadstock_items"]:
+    if not st.session_state["data_loaded"]:
+        st.info(T["no_data_msg"])
+        st.stop()
+
+    _, _, _, _, deadstock_rep = run_analytics_cached(
+        st.session_state["sales_df"],
+        st.session_state["purchases_df"],
+        st.session_state["stock_df"],
+        st.session_state["service_level"],
+        st.session_state["deadstock_threshold"],
+        st.session_state["forecast_horizon"],
+    )
+
+    st.markdown('<div class="main-title">💰 Cash Locked in Dead Stock</div>', unsafe_allow_html=True)
+    st.markdown(
+        '<div class="sub-tagline">All dead-stock items are listed below, ranked by the cash locked in each item.</div>',
+        unsafe_allow_html=True,
+    )
+    st.metric(
+        "Total Cash Locked",
+        format_inr(deadstock_rep.total_cash_locked_rupees),
+    )
+    st.caption(f"{deadstock_rep.deadstock_items_count} dead-stock items")
+
+    ds_rows = [item.to_dict() for item in deadstock_rep.ranked_deadstock_items]
+    if ds_rows:
+        st.dataframe(pd.DataFrame(ds_rows), use_container_width=True, hide_index=True)
+    else:
+        st.success(
+            f"No dead stock detected. All items have moved within the last "
+            f"{st.session_state['deadstock_threshold']} days."
+        )
+
+
+# =============================================================================
+# PAGE 7: ASK GODAM AI (ANTHROPIC CLAUDE NATURAL LANGUAGE ASSISTANT)
 # =============================================================================
 
 elif page == T["nav_assistant"]:
@@ -860,7 +909,7 @@ elif page == T["nav_assistant"]:
 
 
 # =============================================================================
-# PAGE 7: EXECUTIVE 1-PAGE PDF REPORT (SALES TOOL)
+# PAGE 8: EXECUTIVE 1-PAGE PDF REPORT (SALES TOOL)
 # =============================================================================
 
 elif page == T["nav_report"]:
@@ -936,7 +985,7 @@ elif page == T["nav_report"]:
 
 
 # =============================================================================
-# PAGE 8: SETTINGS & PREFERENCES
+# PAGE 9: SETTINGS & PREFERENCES
 # =============================================================================
 
 elif page == T["nav_settings"]:
